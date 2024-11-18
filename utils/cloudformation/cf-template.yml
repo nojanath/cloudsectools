@@ -1,0 +1,148 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Resources:
+  StaticWebsiteBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub "${AWS::StackName}-static-website"
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+
+  S3BucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref StaticWebsiteBucket
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: CloudFrontAccess
+            Effect: Allow
+            Principal:
+              Service: "cloudfront.amazonaws.com"
+            Action: "s3:GetObject"
+            Resource: !Sub "arn:aws:s3:::${StaticWebsiteBucket}/*"
+            Condition:
+              StringEquals:
+                "AWS:SourceArn": !GetAtt CloudFrontDistribution.Arn
+
+  CloudFrontOAC:
+    Type: AWS::CloudFront::OriginAccessControl
+    Properties:
+      OriginAccessControlConfig:
+        Name: !Sub "${AWS::StackName}-oac"
+        Description: "Access Control for S3 Origin"
+        OriginAccessControlOriginType: "s3"
+        SigningBehavior: "always"
+        SigningProtocol: "sigv4"
+
+  CloudFrontDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Enabled: true
+        Origins:
+          - DomainName: !GetAtt StaticWebsiteBucket.DomainName
+            Id: StaticWebsiteOrigin
+            S3OriginConfig:
+              OriginAccessControlId: !Ref CloudFrontOAC
+        DefaultCacheBehavior:
+          TargetOriginId: StaticWebsiteOrigin
+          ViewerProtocolPolicy: redirect-to-https
+          AllowedMethods:
+            - GET
+            - HEAD
+          CachedMethods:
+            - GET
+            - HEAD
+          ForwardedValues:
+            QueryString: false
+            Cookies:
+              Forward: none
+        ViewerCertificate:
+          CloudFrontDefaultCertificate: true
+
+  FetchRepoLambda:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: !Sub "${AWS::StackName}-fetch-repo-data"
+      Runtime: "nodejs18.x"
+      Handler: index.handler
+      Code:
+        ZipFile: |
+          const AWS = require('aws-sdk');
+          const s3 = new AWS.S3();
+          const { execSync } = require('child_process');
+
+          exports.handler = async () => {
+            try {
+              // Execute the fetchRepoData.cjs script
+              execSync('node fetchRepoData.cjs');
+              const toolsData = require('./tools.json');
+
+              // Upload tools.json to S3
+              await s3.putObject({
+                Bucket: process.env.BUCKET_NAME,
+                Key: 'tools.json',
+                Body: JSON.stringify(toolsData),
+                ContentType: 'application/json'
+              }).promise();
+
+              console.log('Updated tools.json in S3');
+            } catch (error) {
+              console.error('Error updating tools.json:', error);
+              throw error;
+            }
+          };
+      Environment:
+        Variables:
+          BUCKET_NAME: !Ref StaticWebsiteBucket
+      Role: !GetAtt FetchRepoLambdaRole.Arn
+      Timeout: 60
+
+  FetchRepoLambdaRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub "${AWS::StackName}-fetch-repo-role"
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: "lambda.amazonaws.com"
+            Action: "sts:AssumeRole"
+      Policies:
+        - PolicyName: LambdaS3Access
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - "s3:PutObject"
+                  - "s3:GetObject"
+                Resource:
+                  - !Sub "arn:aws:s3:::${StaticWebsiteBucket}/tools.json"
+              - Effect: Allow
+                Action:
+                  - "logs:CreateLogGroup"
+                  - "logs:CreateLogStream"
+                  - "logs:PutLogEvents"
+                Resource: "arn:aws:logs:*:*:*"
+
+  FetchRepoLambdaSchedule:
+    Type: AWS::Events::Rule
+    Properties:
+      ScheduleExpression: "rate(1 day)"
+      State: "ENABLED"
+      Targets:
+        - Arn: !GetAtt FetchRepoLambda.Arn
+          Id: FetchRepoLambdaTarget
+
+  FetchRepoLambdaPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref FetchRepoLambda
+      Action: "lambda:InvokeFunction"
+      Principal: "events.amazonaws.com"
+      SourceArn: !GetAtt FetchRepoLambdaSchedule.Arn
