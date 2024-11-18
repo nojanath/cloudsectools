@@ -37,15 +37,10 @@ jobs:
 
     # Step 6: Deploy to S3 using OIDC
     - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v2
+      uses: aws-actions/configure-aws-credentials@v4
       with:
         role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_NUMBER }}:role/gh-action-fetch-build-deploy
         aws-region: us-east-1
-
-    - name: Debug Inputs
-      run: |
-        echo "Role ARN: arn:aws:iam::${{ secrets.AWS_ACCOUNT_NUMBER }}:role/gh-action-fetch-build-deploy"
-        echo "Bucket Name: ${{ secrets.S3_BUCKET_NAME }}"
 
     - name: Deploy to S3
       uses: jakejarvis/s3-sync-action@v0.5.1
