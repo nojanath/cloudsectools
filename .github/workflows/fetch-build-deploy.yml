@@ -16,13 +16,13 @@ jobs:
     steps:
     # Step 1: Checkout the repository
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     # Step 2: Setup Node.js
     - name: Setup Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
-        node-version: 18
+        node-version: 20
 
     # Step 3: Install dependencies
     - name: Install dependencies
@@ -37,6 +37,11 @@ jobs:
     # Step 5: Build the project
     - name: Build the project
       run: npm run build
+
+    - name: Debug Inputs
+      run: |
+        echo "Role ARN: arn:aws:iam::${{ secrets.AWS_ACCOUNT_NUMBER }}:role/<ROLE_NAME>"
+        echo "Bucket Name: ${{ secrets.S3_BUCKET_NAME }}"
 
     # Step 6: Deploy to S3 using OIDC
     - name: Configure AWS Credentials
