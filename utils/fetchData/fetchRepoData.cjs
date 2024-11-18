@@ -128,7 +128,6 @@ async function fetchData() {
     }
   }
 
-  // Write to tools.json without shuffling
   fs.writeFileSync('tools.json', JSON.stringify(toolsData, null, 2), 'utf8');
   console.log('Data has been written to tools.json');
 }
