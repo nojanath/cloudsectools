@@ -35,14 +35,16 @@ jobs:
     - name: Build the project
       run: npm run build
 
-    # Step 6: Deploy to S3
+    # Step 6: Deploy to S3 using OIDC
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        role-to-assume: arn:aws:iam::010526279859:role/gh-action-fetch-build-deploy
+        aws-region: us-east-1
+
     - name: Deploy to S3
       uses: jakejarvis/s3-sync-action@v0.5.1
       with:
         args: --acl public-read --delete
-      env:
-        AWS_S3_BUCKET: ${{ secrets.S3_BUCKET_NAME }}
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_REGION: ${{ secrets.AWS_REGION }}
-        SOURCE_DIR: ./dist
+        bucket: ${{ secrets.S3_BUCKET_NAME }}
+        source_dir: ./dist
