@@ -20,7 +20,6 @@ export default function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [filterLanguage, setFilterLanguage] = useState("");
   const [sortKey, setSortKey] = useState<"" | keyof Tool>("");
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   const filteredTools = toolsData
     .filter((tool) => {
@@ -38,12 +37,6 @@ export default function App() {
     .filter((tool) => {
       if (filterLanguage) {
         return tool.language === filterLanguage;
-      }
-      return true;
-    })
-    .filter((tool) => {
-      if (selectedCategory) {
-        return tool.categories.includes(selectedCategory);
       }
       return true;
     })
