@@ -27,7 +27,7 @@ jobs:
 
     # Step 4: Run the fetchRepoData script
     - name: Fetch repository data
-      run: node fetchRepoData.cjs
+      run: node ../../../utils/fetchData/fetchRepoData.cjs
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
