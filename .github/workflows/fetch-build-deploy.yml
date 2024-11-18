@@ -42,7 +42,7 @@ jobs:
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
-        role-to-assume: arn:aws:iam::010526279859:role/gh-action-fetch-build-deploy
+        role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_NUMBER }}:role/gh-action-fetch-build-deploy
         aws-region: us-east-1
 
     - name: Deploy to S3
