@@ -38,16 +38,11 @@ jobs:
     - name: Build the project
       run: npm run build
 
-    - name: Debug Inputs
-      run: |
-        echo "Role ARN: arn:aws:iam::${{ secrets.AWS_ACCOUNT_NUMBER }}:role/<ROLE_NAME>"
-        echo "Bucket Name: ${{ secrets.S3_BUCKET_NAME }}"
-
     # Step 6: Deploy to S3 using OIDC
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
-        role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_NUMBER }}:role/gh-action-fetch-build-deploy
+        role-to-assume: arn:aws:iam::010526279859:role/gh-action-fetch-build-deploy
         aws-region: us-east-1
 
     - name: Deploy to S3
