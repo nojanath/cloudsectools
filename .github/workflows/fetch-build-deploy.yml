@@ -26,10 +26,10 @@ jobs:
       run: npm install
 
     # Step 4: Run the fetchRepoData script
-    - name: Fetch repository data
-      run: node utils/fetchData/fetchRepoData.cjs
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    # - name: Fetch repository data
+    #   run: node utils/fetchData/fetchRepoData.cjs
+    #   env:
+    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     # Step 5: Build the project
     - name: Build the project
@@ -41,6 +41,11 @@ jobs:
       with:
         role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_NUMBER }}:role/gh-action-fetch-build-deploy
         aws-region: us-east-1
+
+    - name: Debug Inputs
+      run: |
+        echo "Role ARN: arn:aws:iam::${{ secrets.AWS_ACCOUNT_NUMBER }}:role/gh-action-fetch-build-deploy"
+        echo "Bucket Name: ${{ secrets.S3_BUCKET_NAME }}"
 
     - name: Deploy to S3
       uses: jakejarvis/s3-sync-action@v0.5.1
