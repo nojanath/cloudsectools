@@ -340,7 +340,6 @@ const repos = [
     'Permiso-io-tools/CloudConsoleCartographer',
     'Permiso-io-tools/cloudtail',
     'Permiso-io-tools/SkyScalpel',
-    'pixee/codemodder-java',
     'planetscale/cloudranger',
     'prevade/cloudjack',
     'primait/nuvola',

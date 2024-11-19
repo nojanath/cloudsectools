@@ -20,7 +20,7 @@ export default function SortControl({ sortKey, setSortKey }: SortControlProps) {
         <option value="" disabled>
           Sort By
         </option>
-        <option value="stars">Stars</option>
+        <option value="stars">GitHub Stars</option>
         <option value="last_commit">Last Update</option>
         <option value="name">Name</option>
       </select>

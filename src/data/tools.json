@@ -2,7 +2,7 @@
   {
     "name": "0xsha/CloudBrute",
     "repo": "https://github.com/0xsha/CloudBrute",
-    "stars": 887,
+    "stars": 893,
     "last_commit": "2024-08-07T17:21:11Z",
     "language": "Go",
     "description": "Awesome cloud enumerator ",
@@ -29,22 +29,9 @@
     "install_options": []
   },
   {
-    "name": "1Password/onepassword-sdk-python",
-    "repo": "https://github.com/1Password/onepassword-sdk-python",
-    "stars": 85,
-    "last_commit": "2024-10-17T14:15:03Z",
-    "language": "Python",
-    "description": "",
-    "tags": [],
-    "categories": [
-      "Uncategorized"
-    ],
-    "install_options": []
-  },
-  {
     "name": "99designs/aws-vault",
     "repo": "https://github.com/99designs/aws-vault",
-    "stars": 8511,
+    "stars": 8515,
     "last_commit": "2024-05-07T01:00:25Z",
     "language": "Go",
     "description": "A vault for securely storing and accessing AWS credentials in development environments",
@@ -128,19 +115,6 @@
     "install_options": []
   },
   {
-    "name": "ahmetb/kubectl-cond",
-    "repo": "https://github.com/ahmetb/kubectl-cond",
-    "stars": 65,
-    "last_commit": "2024-08-10T00:40:09Z",
-    "language": "Go",
-    "description": "kubectl plugin to print Kubernetes resource conditions",
-    "tags": [],
-    "categories": [
-      "Container Security"
-    ],
-    "install_options": []
-  },
-  {
     "name": "airbnb/streamalert",
     "repo": "https://github.com/airbnb/streamalert",
     "stars": 2861,
@@ -215,7 +189,7 @@
   {
     "name": "andresriancho/enumerate-iam",
     "repo": "https://github.com/andresriancho/enumerate-iam",
-    "stars": 1096,
+    "stars": 1097,
     "last_commit": "2019-11-27T13:24:30Z",
     "language": "Python",
     "description": "Enumerate the permissions associated with AWS credential set",
@@ -281,8 +255,8 @@
   {
     "name": "aquasecurity/trivy",
     "repo": "https://github.com/aquasecurity/trivy",
-    "stars": 23701,
-    "last_commit": "2024-11-14T19:09:28Z",
+    "stars": 23719,
+    "last_commit": "2024-11-18T14:07:49Z",
     "language": "Go",
     "description": "Find vulnerabilities, misconfigurations, secrets, SBOM in containers, Kubernetes, code repositories, clouds and more",
     "tags": [
@@ -395,32 +369,9 @@
     "install_options": []
   },
   {
-    "name": "aws-samples/example-permissions-boundary",
-    "repo": "https://github.com/aws-samples/example-permissions-boundary",
-    "stars": 68,
-    "last_commit": "2024-08-01T16:45:58Z",
-    "language": "",
-    "description": "  This repository contains a sample IAM permissions boundary as a starting point for creating your own permissions boundary to meet the security needs of your organization. The IAM permissions boundary sample, when attached to an IAM role, allow it to perform all expected workload tasks without being able to modify the security of its environment.",
-    "tags": [
-      "aws",
-      "cloud",
-      "iam",
-      "policy",
-      "security"
-    ],
-    "categories": [
-      "S3 Auditing",
-      "Compliance",
-      "IAM Tools",
-      "Data Security",
-      "Policy Management"
-    ],
-    "install_options": []
-  },
-  {
     "name": "aws/aws-imds-packet-analyzer",
     "repo": "https://github.com/aws/aws-imds-packet-analyzer",
-    "stars": 117,
+    "stars": 118,
     "last_commit": "2024-09-11T14:45:36Z",
     "language": "Python",
     "description": "",
@@ -433,7 +384,7 @@
   {
     "name": "aws/aws-secretsmanager-agent",
     "repo": "https://github.com/aws/aws-secretsmanager-agent",
-    "stars": 607,
+    "stars": 608,
     "last_commit": "2024-10-28T23:30:35Z",
     "language": "Rust",
     "description": "The AWS Secrets Manager Agent is a local HTTP service that you can install and use in your compute environments to read secrets from Secrets Manager and cache them in memory.",
@@ -446,30 +397,6 @@
     ],
     "categories": [
       "Secrets Management"
-    ],
-    "install_options": []
-  },
-  {
-    "name": "aws/chalice",
-    "repo": "https://github.com/aws/chalice",
-    "stars": 10664,
-    "last_commit": "2024-06-10T17:04:11Z",
-    "language": "Python",
-    "description": "Python Serverless Microframework for AWS",
-    "tags": [
-      "python",
-      "aws",
-      "aws-lambda",
-      "cloud",
-      "serverless",
-      "serverless-framework",
-      "aws-apigateway",
-      "lambda",
-      "python3",
-      "python27"
-    ],
-    "categories": [
-      "Serverless Security"
     ],
     "install_options": []
   },
@@ -487,24 +414,6 @@
     "install_options": []
   },
   {
-    "name": "awslabs/cedar-access-control-for-k8s",
-    "repo": "https://github.com/awslabs/cedar-access-control-for-k8s",
-    "stars": 78,
-    "last_commit": "2024-11-15T22:53:21Z",
-    "language": "Go",
-    "description": "Cedar for Kubernetes brings the power of Cedar to Kubernetes authorization and admission validation, showing how cluster administrators can enable a unified access control language for principals making API calls and giving policy authors a single language to write and reason about",
-    "tags": [],
-    "categories": [
-      "S3 Auditing",
-      "Compliance",
-      "IAM Tools",
-      "Container Security",
-      "Policy Management",
-      "API Security"
-    ],
-    "install_options": []
-  },
-  {
     "name": "awslabs/coldsnap",
     "repo": "https://github.com/awslabs/coldsnap",
     "stars": 199,
@@ -517,19 +426,6 @@
       "ebs",
       "snapshots"
     ],
-    "categories": [
-      "Uncategorized"
-    ],
-    "install_options": []
-  },
-  {
-    "name": "awslabs/git-remote-s3",
-    "repo": "https://github.com/awslabs/git-remote-s3",
-    "stars": 474,
-    "last_commit": "2024-11-15T15:24:46Z",
-    "language": "Python",
-    "description": "",
-    "tags": [],
     "categories": [
       "Uncategorized"
     ],
@@ -577,7 +473,7 @@
   {
     "name": "Azure/Stormspotter",
     "repo": "https://github.com/Azure/Stormspotter",
-    "stars": 1546,
+    "stars": 1547,
     "last_commit": "2022-07-20T21:38:29Z",
     "language": "Python",
     "description": "Azure Red Team tool for graphing Azure and Azure Active Directory objects",
@@ -586,19 +482,6 @@
       "S3 Auditing",
       "Threat Detection",
       "Penetration Testing"
-    ],
-    "install_options": []
-  },
-  {
-    "name": "basecamp/kamal",
-    "repo": "https://github.com/basecamp/kamal",
-    "stars": 11604,
-    "last_commit": "2024-11-04T11:14:42Z",
-    "language": "Ruby",
-    "description": "Deploy web apps anywhere.",
-    "tags": [],
-    "categories": [
-      "Uncategorized"
     ],
     "install_options": []
   },
@@ -634,7 +517,7 @@
   {
     "name": "BishopFox/cloudfox",
     "repo": "https://github.com/BishopFox/cloudfox",
-    "stars": 1954,
+    "stars": 1955,
     "last_commit": "2024-10-17T08:47:11Z",
     "language": "Go",
     "description": "Automating situational awareness for cloud penetration tests.",
@@ -673,15 +556,29 @@
     "install_options": []
   },
   {
-    "name": "bndr/pipreqs",
-    "repo": "https://github.com/bndr/pipreqs",
-    "stars": 6764,
-    "last_commit": "2024-02-18T17:35:24Z",
-    "language": "Python",
-    "description": "pipreqs - Generate pip requirements.txt file based on imports of any project. Looking for maintainers to move this project forward.",
-    "tags": [],
+    "name": "boostsecurityio/poutine",
+    "repo": "https://github.com/boostsecurityio/poutine",
+    "stars": 231,
+    "last_commit": "2024-10-24T20:09:35Z",
+    "language": "Go",
+    "description": "boostsecurityio/poutine",
+    "tags": [
+      "ci",
+      "cli",
+      "devops",
+      "devsecops",
+      "gh-extension",
+      "github",
+      "github-actions",
+      "golang",
+      "security",
+      "security-scanner",
+      "supply-chain",
+      "supply-chain-security"
+    ],
     "categories": [
-      "Uncategorized"
+      "Compliance",
+      "Data Security"
     ],
     "install_options": []
   },
@@ -726,8 +623,8 @@
   {
     "name": "bridgecrewio/checkov",
     "repo": "https://github.com/bridgecrewio/checkov",
-    "stars": 7129,
-    "last_commit": "2024-11-17T14:35:24Z",
+    "stars": 7131,
+    "last_commit": "2024-11-18T15:59:39Z",
     "language": "Python",
     "description": "Prevent cloud misconfigurations and find vulnerabilities during build-time in infrastructure as code, container images and open source packages with Checkov by Bridgecrew.",
     "tags": [
@@ -758,7 +655,7 @@
   {
     "name": "bridgecrewio/yor",
     "repo": "https://github.com/bridgecrewio/yor",
-    "stars": 830,
+    "stars": 831,
     "last_commit": "2024-08-04T09:01:31Z",
     "language": "Go",
     "description": "Extensible auto-tagger for your IaC files. The ultimate way to link entities in the cloud back to the codified resource which created it.",
@@ -795,10 +692,23 @@
     "install_options": []
   },
   {
+    "name": "c6fc/npk",
+    "repo": "https://github.com/c6fc/npk",
+    "stars": 525,
+    "last_commit": "2024-04-06T16:22:18Z",
+    "language": "JavaScript",
+    "description": "A mostly-serverless distributed hash cracking platform",
+    "tags": [],
+    "categories": [
+      "Serverless Security"
+    ],
+    "install_options": []
+  },
+  {
     "name": "canonical/cloud-init",
     "repo": "https://github.com/canonical/cloud-init",
-    "stars": 2993,
-    "last_commit": "2024-11-15T16:45:53Z",
+    "stars": 2996,
+    "last_commit": "2024-11-18T15:59:12Z",
     "language": "Python",
     "description": "Official upstream for the cloud-init: cloud instance initialization",
     "tags": [
@@ -951,7 +861,7 @@
   {
     "name": "cloud-custodian/cloud-custodian",
     "repo": "https://github.com/cloud-custodian/cloud-custodian",
-    "stars": 5462,
+    "stars": 5463,
     "last_commit": "2024-11-14T19:52:39Z",
     "language": "Python",
     "description": "Rules engine for cloud security, cost optimization, and governance, DSL in yaml for policies to query, filter, and take actions on resources",
@@ -979,7 +889,7 @@
   {
     "name": "cloudquery/cloudquery",
     "repo": "https://github.com/cloudquery/cloudquery",
-    "stars": 5877,
+    "stars": 5878,
     "last_commit": "2024-11-16T02:47:15Z",
     "language": "Go",
     "description": "The open source high performance ELT framework powered by Apache Arrow",
@@ -1014,7 +924,7 @@
   {
     "name": "aquasecurity/cloudsploit",
     "repo": "https://github.com/aquasecurity/cloudsploit",
-    "stars": 3356,
+    "stars": 3357,
     "last_commit": "2024-11-11T13:10:45Z",
     "language": "JavaScript",
     "description": "Cloud Security Posture Management (CSPM)",
@@ -1090,7 +1000,7 @@
   {
     "name": "cyberark/SkyArk",
     "repo": "https://github.com/cyberark/SkyArk",
-    "stars": 873,
+    "stars": 874,
     "last_commit": "2022-11-20T18:26:01Z",
     "language": "PowerShell",
     "description": "SkyArk helps to discover, assess and secure the most privileged entities in Azure and AWS",
@@ -1312,7 +1222,7 @@
   {
     "name": "duo-labs/cloudmapper",
     "repo": "https://github.com/duo-labs/cloudmapper",
-    "stars": 6004,
+    "stars": 6005,
     "last_commit": "2023-11-30T22:26:56Z",
     "language": "JavaScript",
     "description": " CloudMapper helps you analyze your Amazon Web Services (AWS) environments.",
@@ -1373,8 +1283,8 @@
   {
     "name": "trufflesecurity/trufflehog",
     "repo": "https://github.com/trufflesecurity/trufflehog",
-    "stars": 17269,
-    "last_commit": "2024-11-16T23:10:12Z",
+    "stars": 17278,
+    "last_commit": "2024-11-18T16:46:30Z",
     "language": "Go",
     "description": "Find, verify, and analyze leaked credentials",
     "tags": [
@@ -1402,7 +1312,7 @@
   {
     "name": "edera-dev/am-i-isolated",
     "repo": "https://github.com/edera-dev/am-i-isolated",
-    "stars": 140,
+    "stars": 149,
     "last_commit": "2024-11-12T18:05:24Z",
     "language": "Rust",
     "description": "Validate the isolation posture of your container environment.",
@@ -1415,7 +1325,7 @@
   {
     "name": "terraform-compliance/cli",
     "repo": "https://github.com/terraform-compliance/cli",
-    "stars": 1359,
+    "stars": 1360,
     "last_commit": "2024-10-02T16:50:52Z",
     "language": "Python",
     "description": "a lightweight, security focused, BDD test framework against terraform.",
@@ -1560,8 +1470,8 @@
   {
     "name": "facebookincubator/TTPForge",
     "repo": "https://github.com/facebookincubator/TTPForge",
-    "stars": 341,
-    "last_commit": "2024-10-31T13:15:48Z",
+    "stars": 342,
+    "last_commit": "2024-11-18T18:14:19Z",
     "language": "Go",
     "description": "The TTPForge is a Cybersecurity Framework for developing, automating, and executing attacker Tactics, Techniques, and Procedures (TTPs).",
     "tags": [],
@@ -1576,7 +1486,7 @@
   {
     "name": "falcosecurity/falco",
     "repo": "https://github.com/falcosecurity/falco",
-    "stars": 7398,
+    "stars": 7404,
     "last_commit": "2024-11-07T07:58:23Z",
     "language": "C++",
     "description": "Cloud Native Runtime Security",
@@ -1617,7 +1527,7 @@
     "name": "flosell/trailscraper",
     "repo": "https://github.com/flosell/trailscraper",
     "stars": 794,
-    "last_commit": "2024-11-11T09:07:38Z",
+    "last_commit": "2024-11-18T01:54:04Z",
     "language": "Python",
     "description": "A command-line tool to get valuable information out of AWS CloudTrail",
     "tags": [
@@ -1664,7 +1574,7 @@
   {
     "name": "WithSecureLabs/leonidas",
     "repo": "https://github.com/WithSecureLabs/leonidas",
-    "stars": 497,
+    "stars": 499,
     "last_commit": "2024-11-16T17:07:01Z",
     "language": "Python",
     "description": "Automated Attack Simulation in the Cloud, complete with detection use cases.",
@@ -1718,7 +1628,7 @@
   {
     "name": "gchq/CyberChef",
     "repo": "https://github.com/gchq/CyberChef",
-    "stars": 29275,
+    "stars": 29292,
     "last_commit": "2024-10-23T15:10:44Z",
     "language": "JavaScript",
     "description": "The Cyber Swiss Army Knife - a web app for encryption, encoding, compression and data analysis",
@@ -1740,9 +1650,24 @@
     "install_options": []
   },
   {
+    "name": "gladstomych/AHHHZURE",
+    "repo": "https://github.com/gladstomych/AHHHZURE",
+    "stars": 101,
+    "last_commit": "2024-04-22T12:19:40Z",
+    "language": "PowerShell",
+    "description": "AHHHZURE is an automated deployment script that creates a vulnerable Azure cloud lab for offensive security practitioners and enthusiasts to brush up their cloud sec skills.",
+    "tags": [],
+    "categories": [
+      "Compliance",
+      "Cloud Infrastructure",
+      "Data Security"
+    ],
+    "install_options": []
+  },
+  {
     "name": "gojue/ecapture",
     "repo": "https://github.com/gojue/ecapture",
-    "stars": 13449,
+    "stars": 13454,
     "last_commit": "2024-11-16T15:09:29Z",
     "language": "C",
     "description": "Capturing SSL/TLS plaintext without a CA certificate using eBPF. Supported on Linux/Android kernels for amd64/arm64.",
@@ -1798,8 +1723,8 @@
   {
     "name": "google/trillian",
     "repo": "https://github.com/google/trillian",
-    "stars": 3553,
-    "last_commit": "2024-11-15T22:05:49Z",
+    "stars": 3554,
+    "last_commit": "2024-11-18T14:15:43Z",
     "language": "Go",
     "description": "A transparent, highly scalable and cryptographically verifiable data store.",
     "tags": [
@@ -1864,6 +1789,19 @@
     "install_options": []
   },
   {
+    "name": "hac01/gcp-iam-brute",
+    "repo": "https://github.com/hac01/gcp-iam-brute",
+    "stars": 40,
+    "last_commit": "2024-06-13T10:17:09Z",
+    "language": "Python",
+    "description": "",
+    "tags": [],
+    "categories": [
+      "Uncategorized"
+    ],
+    "install_options": []
+  },
+  {
     "name": "HarshVaragiya/aws-redteam-kit",
     "repo": "https://github.com/HarshVaragiya/aws-redteam-kit",
     "stars": 26,
@@ -1903,24 +1841,6 @@
     "categories": [
       "Threat Detection",
       "Penetration Testing"
-    ],
-    "install_options": []
-  },
-  {
-    "name": "iagcl/watchmen",
-    "repo": "https://github.com/iagcl/watchmen",
-    "stars": 179,
-    "last_commit": "2018-09-05T02:48:23Z",
-    "language": "Python",
-    "description": "(Not maintained anymore) Watchmen - AWS account compliance using centrally managed Config Rules",
-    "tags": [
-      "aws",
-      "aws-config",
-      "lambda-functions"
-    ],
-    "categories": [
-      "Compliance",
-      "Policy Management"
     ],
     "install_options": []
   },
@@ -2231,13 +2151,31 @@
     "name": "cartography-cncf/cartography",
     "repo": "https://github.com/cartography-cncf/cartography",
     "stars": 3012,
-    "last_commit": "2024-11-14T22:57:27Z",
+    "last_commit": "2024-11-18T18:52:22Z",
     "language": "Python",
     "description": "Cartography is a Python tool that consolidates infrastructure assets and the relationships between them in an intuitive graph view powered by a Neo4j database.",
     "tags": [],
     "categories": [
       "Cloud Infrastructure",
       "Data Security"
+    ],
+    "install_options": []
+  },
+  {
+    "name": "maester365/maester",
+    "repo": "https://github.com/maester365/maester",
+    "stars": 355,
+    "last_commit": "2024-11-05T22:12:47Z",
+    "language": "HTML",
+    "description": "The core repository for the Maester module with helper cmdlets that will be called from the Pester tests.",
+    "tags": [
+      "devops",
+      "entra",
+      "microsoft-365",
+      "microsoft-graph"
+    ],
+    "categories": [
+      "Uncategorized"
     ],
     "install_options": []
   },
@@ -2347,7 +2285,7 @@
     "name": "tailwarden/komiser",
     "repo": "https://github.com/tailwarden/komiser",
     "stars": 3974,
-    "last_commit": "2024-11-07T06:10:19Z",
+    "last_commit": "2024-11-18T11:15:33Z",
     "language": "Go",
     "description": "Open-source cloud-environment inspector. Supporting AWS, GCP, Azure, and more! Your cloud resources will have nowhere to hide!",
     "tags": [
@@ -2534,7 +2472,7 @@
   {
     "name": "nccgroup/ScoutSuite",
     "repo": "https://github.com/nccgroup/ScoutSuite",
-    "stars": 6732,
+    "stars": 6737,
     "last_commit": "2024-05-10T09:24:57Z",
     "language": "Python",
     "description": "Multi-Cloud Security Auditing Tool",
@@ -2557,7 +2495,7 @@
   {
     "name": "nccgroup/SteppingStones",
     "repo": "https://github.com/nccgroup/SteppingStones",
-    "stars": 174,
+    "stars": 175,
     "last_commit": "2024-11-16T17:55:47Z",
     "language": "Python",
     "description": "A Red Team Activity Hub",
@@ -2658,7 +2596,7 @@
   {
     "name": "nianticlabs/venator",
     "repo": "https://github.com/nianticlabs/venator",
-    "stars": 350,
+    "stars": 351,
     "last_commit": "2024-10-01T11:08:41Z",
     "language": "Go",
     "description": "A flexible threat detection platform that simplifies rule management and deployment using K8s CronJob and Helm, but can also run standalone or with other job schedulers like Nomad.",
@@ -2680,7 +2618,7 @@
   {
     "name": "nozaq/terraform-aws-secure-baseline",
     "repo": "https://github.com/nozaq/terraform-aws-secure-baseline",
-    "stars": 1142,
+    "stars": 1143,
     "last_commit": "2023-02-22T00:05:35Z",
     "language": "HCL",
     "description": "Terraform module to set up your AWS account with the secure baseline configuration based on CIS Amazon Web Services Foundations and AWS Foundational Security Best Practices.",
@@ -2753,27 +2691,6 @@
     "install_options": []
   },
   {
-    "name": "omaidf/PrismX",
-    "repo": "https://github.com/omaidf/PrismX",
-    "stars": 0,
-    "last_commit": "2020-10-09T16:47:29Z",
-    "language": "Python",
-    "description": "Cloud Security Dashboard for AWS - based on ScoutSuite",
-    "tags": [
-      "aws",
-      "security",
-      "auditing",
-      "cloud-security"
-    ],
-    "categories": [
-      "S3 Auditing",
-      "Compliance",
-      "Cloud Monitoring",
-      "Data Security"
-    ],
-    "install_options": []
-  },
-  {
     "name": "open-policy-agent/gatekeeper-library",
     "repo": "https://github.com/open-policy-agent/gatekeeper-library",
     "stars": 649,
@@ -2798,6 +2715,19 @@
     "install_options": []
   },
   {
+    "name": "openai/openai-security-bots",
+    "repo": "https://github.com/openai/openai-security-bots",
+    "stars": 356,
+    "last_commit": "2024-04-18T09:38:38Z",
+    "language": "Python",
+    "description": "",
+    "tags": [],
+    "categories": [
+      "Uncategorized"
+    ],
+    "install_options": []
+  },
+  {
     "name": "orcasecurity-research/kte",
     "repo": "https://github.com/orcasecurity-research/kte",
     "stars": 34,
@@ -2809,6 +2739,42 @@
       "Compliance",
       "Data Security",
       "Container Security"
+    ],
+    "install_options": []
+  },
+  {
+    "name": "ovotech/cloud-key-rotator",
+    "repo": "https://github.com/ovotech/cloud-key-rotator",
+    "stars": 65,
+    "last_commit": "2024-09-09T03:45:28Z",
+    "language": "Go",
+    "description": "A Golang program to rotate AWS & GCP account keys",
+    "tags": [
+      "company-kaluza"
+    ],
+    "categories": [
+      "Secrets Management"
+    ],
+    "install_options": []
+  },
+  {
+    "name": "padok-team/cognito-scanner",
+    "repo": "https://github.com/padok-team/cognito-scanner",
+    "stars": 100,
+    "last_commit": "2023-12-06T16:00:48Z",
+    "language": "Python",
+    "description": "A simple script which implements different Cognito attacks such as Account Oracle or Priviledge Escalation",
+    "tags": [
+      "audit",
+      "cognito",
+      "cybersecurity",
+      "scanner",
+      "security-tools"
+    ],
+    "categories": [
+      "Compliance",
+      "Threat Detection",
+      "Penetration Testing"
     ],
     "install_options": []
   },
@@ -2880,9 +2846,24 @@
     "install_options": []
   },
   {
+    "name": "Permiso-io-tools/CloudConsoleCartographer",
+    "repo": "https://github.com/Permiso-io-tools/CloudConsoleCartographer",
+    "stars": 157,
+    "last_commit": "2024-05-16T14:34:39Z",
+    "language": "PowerShell",
+    "description": "Released at Black Hat Asia on April 18, 2024, Cloud Console Cartographer is a framework for condensing groupings of cloud events (e.g. CloudTrail logs) and mapping them to the original user input actions in the management console UI for simplified analysis and explainability.",
+    "tags": [],
+    "categories": [
+      "Incident Response",
+      "Cloud Monitoring",
+      "Static Analysis"
+    ],
+    "install_options": []
+  },
+  {
     "name": "Permiso-io-tools/cloudtail",
     "repo": "https://github.com/Permiso-io-tools/cloudtail",
-    "stars": 22,
+    "stars": 23,
     "last_commit": "2024-11-07T10:00:59Z",
     "language": "Python",
     "description": "",
@@ -2909,7 +2890,7 @@
     "name": "pixee/codemodder-java",
     "repo": "https://github.com/pixee/codemodder-java",
     "stars": 39,
-    "last_commit": "2024-11-15T19:22:33Z",
+    "last_commit": "2024-11-17T23:17:08Z",
     "language": "Java",
     "description": "a framework for building java codemods",
     "tags": [
@@ -2930,8 +2911,8 @@
   {
     "name": "planetscale/cloudranger",
     "repo": "https://github.com/planetscale/cloudranger",
-    "stars": 4,
-    "last_commit": "2024-11-14T14:55:20Z",
+    "stars": 6,
+    "last_commit": "2024-11-18T15:18:41Z",
     "language": "Go",
     "description": "Go library for mapping IP address ranges to cloud provider regions (currently: AWS and GCP)",
     "tags": [],
@@ -3010,7 +2991,7 @@
   {
     "name": "projectdiscovery/cdncheck",
     "repo": "https://github.com/projectdiscovery/cdncheck",
-    "stars": 773,
+    "stars": 774,
     "last_commit": "2024-11-17T00:10:10Z",
     "language": "Go",
     "description": "A utility to detect various technology for a given IP address.",
@@ -3033,8 +3014,8 @@
   {
     "name": "prowler-cloud/prowler",
     "repo": "https://github.com/prowler-cloud/prowler",
-    "stars": 10847,
-    "last_commit": "2024-11-15T15:23:35Z",
+    "stars": 10852,
+    "last_commit": "2024-11-18T16:09:23Z",
     "language": "Python",
     "description": "Prowler is an Open Source Security tool for AWS, Azure, GCP and Kubernetes to do security assessments, audits, incident response, compliance, continuous monitoring, hardening and forensics readiness. Includes CIS, NIST 800, NIST CSF, CISA, FedRAMP, PCI-DSS, GDPR, HIPAA, FFIEC, SOC2, GXP, Well-Architected Security, ENS and more",
     "tags": [
@@ -3175,7 +3156,7 @@
   {
     "name": "RhinoSecurityLabs/pacu",
     "repo": "https://github.com/RhinoSecurityLabs/pacu",
-    "stars": 4396,
+    "stars": 4397,
     "last_commit": "2024-11-14T18:58:02Z",
     "language": "Python",
     "description": "The AWS exploitation framework, designed for testing the security of Amazon Web Services environments.",
@@ -3226,8 +3207,8 @@
   {
     "name": "runfinch/finch",
     "repo": "https://github.com/runfinch/finch",
-    "stars": 3577,
-    "last_commit": "2024-11-15T22:33:31Z",
+    "stars": 3578,
+    "last_commit": "2024-11-18T20:00:47Z",
     "language": "Go",
     "description": "The Finch CLI is an open source client for container development",
     "tags": [],
@@ -3522,27 +3503,9 @@
     "install_options": []
   },
   {
-    "name": "spegel-org/spegel",
-    "repo": "https://github.com/spegel-org/spegel",
-    "stars": 1264,
-    "last_commit": "2024-11-15T00:22:10Z",
-    "language": "Go",
-    "description": "Stateless cluster local OCI registry mirror.",
-    "tags": [
-      "containerd",
-      "docker",
-      "kubernetes",
-      "oci"
-    ],
-    "categories": [
-      "Container Security"
-    ],
-    "install_options": []
-  },
-  {
     "name": "splunk/attack_range",
     "repo": "https://github.com/splunk/attack_range",
-    "stars": 2158,
+    "stars": 2159,
     "last_commit": "2024-11-05T08:02:59Z",
     "language": "Jinja",
     "description": "A tool that allows you to create vulnerable instrumented local or cloud environments to simulate attacks against and collect the data into Splunk ",
@@ -3559,38 +3522,6 @@
       "Threat Detection",
       "Data Security",
       "Penetration Testing"
-    ],
-    "install_options": []
-  },
-  {
-    "name": "ssoready/ssoready",
-    "repo": "https://github.com/ssoready/ssoready",
-    "stars": 1287,
-    "last_commit": "2024-11-15T19:32:51Z",
-    "language": "TypeScript",
-    "description": "Open-source dev tools for enterprise SSO. Ship SAML + SCIM support this afternoon.",
-    "tags": [
-      "saml",
-      "sso",
-      "authentication",
-      "auth",
-      "authentication-middleware",
-      "saml-authentication",
-      "saml2",
-      "saml-service-provider",
-      "saml-sp-single-sign-on",
-      "sso-login",
-      "sso-api",
-      "sso-solution",
-      "sso-authentication",
-      "single-sign-on",
-      "single-signin-api",
-      "directory-sync",
-      "scim"
-    ],
-    "categories": [
-      "IAM Tools",
-      "API Security"
     ],
     "install_options": []
   },
@@ -3680,7 +3611,7 @@
     "name": "suzuki-shunsuke/tfprovidercheck",
     "repo": "https://github.com/suzuki-shunsuke/tfprovidercheck",
     "stars": 76,
-    "last_commit": "2024-11-17T00:43:27Z",
+    "last_commit": "2024-11-18T13:30:26Z",
     "language": "Go",
     "description": "CLI to prevent malicious Terraform Providers from being executed. You can define the allow list of Terraform Providers and their versions, and check if disallowed providers aren't used",
     "tags": [
@@ -3800,7 +3731,7 @@
   {
     "name": "turbot/steampipe",
     "repo": "https://github.com/turbot/steampipe",
-    "stars": 6984,
+    "stars": 6987,
     "last_commit": "2024-11-13T15:59:33Z",
     "language": "Go",
     "description": "Zero-ETL, infinite possibilities. Live query APIs, code & more with SQL. No DB required.",
@@ -3875,32 +3806,9 @@
     "install_options": []
   },
   {
-    "name": "usebruno/bruno",
-    "repo": "https://github.com/usebruno/bruno",
-    "stars": 27393,
-    "last_commit": "2024-11-15T13:56:30Z",
-    "language": "JavaScript",
-    "description": "Opensource IDE For Exploring and Testing Api's (lightweight alternative to postman/insomnia)",
-    "tags": [
-      "api-client",
-      "git",
-      "graphql-client",
-      "opensource",
-      "automation",
-      "javascript",
-      "testing"
-    ],
-    "categories": [
-      "Cloud Infrastructure",
-      "Penetration Testing",
-      "API Security"
-    ],
-    "install_options": []
-  },
-  {
     "name": "vectra-ai-research/derf",
     "repo": "https://github.com/vectra-ai-research/derf",
-    "stars": 83,
+    "stars": 84,
     "last_commit": "2024-01-12T20:01:38Z",
     "language": "HCL",
     "description": "DeRF (Detection Replay Framework) is an \"Attacks As A Service\" framework, allowing the emulation of offensive techniques and generation of repeatable detection samples in the cloud. Built on Google Workflows",
@@ -3971,30 +3879,6 @@
     "install_options": []
   },
   {
-    "name": "vmware-tanzu/pinniped",
-    "repo": "https://github.com/vmware-tanzu/pinniped",
-    "stars": 581,
-    "last_commit": "2024-11-15T16:10:21Z",
-    "language": "Go",
-    "description": "Pinniped is the easy, secure way to log in to your Kubernetes clusters.",
-    "tags": [
-      "kubernetes",
-      "identity",
-      "authentication",
-      "idp",
-      "login",
-      "oidc",
-      "ldap",
-      "active-directory"
-    ],
-    "categories": [
-      "IAM Tools",
-      "Container Security",
-      "API Security"
-    ],
-    "install_options": []
-  },
-  {
     "name": "Voulnet/barq",
     "repo": "https://github.com/Voulnet/barq",
     "stars": 386,
@@ -4009,45 +3893,9 @@
     "install_options": []
   },
   {
-    "name": "wazuh/wazuh",
-    "repo": "https://github.com/wazuh/wazuh",
-    "stars": 11010,
-    "last_commit": "2024-11-15T16:36:05Z",
-    "language": "C++",
-    "description": "Wazuh - The Open Source Security Platform. Unified XDR and SIEM protection for endpoints and cloud workloads.",
-    "tags": [
-      "security",
-      "compliance",
-      "log-analysis",
-      "vulnerability-detection",
-      "cybersecurity",
-      "file-integrity-monitoring",
-      "infosec",
-      "malware-detection",
-      "cloud-security",
-      "container-security",
-      "security-automation",
-      "security-tools",
-      "siem",
-      "xdr",
-      "configuration-assessement",
-      "incident-response",
-      "pci-dss",
-      "security-audit",
-      "security-hardening",
-      "wazuh"
-    ],
-    "categories": [
-      "Compliance",
-      "Data Security",
-      "Policy Management"
-    ],
-    "install_options": []
-  },
-  {
     "name": "welldone-cloud/aws-lint-iam-policies",
     "repo": "https://github.com/welldone-cloud/aws-lint-iam-policies",
-    "stars": 111,
+    "stars": 112,
     "last_commit": "2024-11-17T19:55:40Z",
     "language": "Python",
     "description": "",
@@ -4150,7 +3998,7 @@
   {
     "name": "WithSecureLabs/cloud-security-vm",
     "repo": "https://github.com/WithSecureLabs/cloud-security-vm",
-    "stars": 101,
+    "stars": 103,
     "last_commit": "2024-09-17T09:49:26Z",
     "language": "HCL",
     "description": "Ansible/Vagrant/Packer files to create a virtual machine with the tooling needed to perform cloud security assessments",
@@ -4177,7 +4025,7 @@
   {
     "name": "xen0l/aws-gate",
     "repo": "https://github.com/xen0l/aws-gate",
-    "stars": 466,
+    "stars": 469,
     "last_commit": "2023-08-04T16:16:48Z",
     "language": "Python",
     "description": "Better  AWS SSM Session manager CLI client ",
@@ -4226,7 +4074,7 @@
   {
     "name": "yanilov/control-tags",
     "repo": "https://github.com/yanilov/control-tags",
-    "stars": 30,
+    "stars": 31,
     "last_commit": "2024-11-02T20:35:42Z",
     "language": "HCL",
     "description": "Scalable integrity framework for ABAC on AWS",
@@ -4243,7 +4091,7 @@
   {
     "name": "Yelp/detect-secrets",
     "repo": "https://github.com/Yelp/detect-secrets",
-    "stars": 3829,
+    "stars": 3831,
     "last_commit": "2024-10-21T15:36:54Z",
     "language": "Python",
     "description": "An enterprise friendly way of detecting and preventing secrets in code.",
@@ -4278,7 +4126,7 @@
   {
     "name": "gitleaks/gitleaks",
     "repo": "https://github.com/gitleaks/gitleaks",
-    "stars": 17962,
+    "stars": 17974,
     "last_commit": "2024-11-05T18:05:21Z",
     "language": "Go",
     "description": "Protect and discover secrets using Gitleaks 🔑",
@@ -4297,141 +4145,6 @@
       "Compliance",
       "Secrets Management",
       "Data Security"
-    ],
-    "install_options": []
-  },
-  {
-    "name": "hac01/gcp-iam-brute",
-    "repo": "https://github.com/hac01/gcp-iam-brute",
-    "stars": 40,
-    "last_commit": "2024-06-13T10:17:09Z",
-    "language": "Python",
-    "description": "",
-    "tags": [],
-    "categories": [
-      "Uncategorized"
-    ],
-    "install_options": []
-  },
-  {
-    "name": "padok-team/cognito-scanner",
-    "repo": "https://github.com/padok-team/cognito-scanner",
-    "stars": 100,
-    "last_commit": "2023-12-06T16:00:48Z",
-    "language": "Python",
-    "description": "A simple script which implements different Cognito attacks such as Account Oracle or Priviledge Escalation",
-    "tags": [
-      "audit",
-      "cognito",
-      "cybersecurity",
-      "scanner",
-      "security-tools"
-    ],
-    "categories": [
-      "Compliance",
-      "Threat Detection",
-      "Penetration Testing"
-    ],
-    "install_options": []
-  },
-  {
-    "name": "openai/openai-security-bots",
-    "repo": "https://github.com/openai/openai-security-bots",
-    "stars": 356,
-    "last_commit": "2024-04-18T09:38:38Z",
-    "language": "Python",
-    "description": "",
-    "tags": [],
-    "categories": [
-      "Uncategorized"
-    ],
-    "install_options": []
-  },
-  {
-    "name": "gladstomych/AHHHZURE",
-    "repo": "https://github.com/gladstomych/AHHHZURE",
-    "stars": 101,
-    "last_commit": "2024-04-22T12:19:40Z",
-    "language": "PowerShell",
-    "description": "AHHHZURE is an automated deployment script that creates a vulnerable Azure cloud lab for offensive security practitioners and enthusiasts to brush up their cloud sec skills.",
-    "tags": [],
-    "categories": [
-      "Compliance",
-      "Cloud Infrastructure",
-      "Data Security"
-    ],
-    "install_options": []
-  },
-  {
-    "name": "boostsecurityio/poutine",
-    "repo": "https://github.com/boostsecurityio/poutine",
-    "stars": 231,
-    "last_commit": "2024-10-24T20:09:35Z",
-    "language": "Go",
-    "description": "boostsecurityio/poutine",
-    "tags": [
-      "ci",
-      "cli",
-      "devops",
-      "devsecops",
-      "gh-extension",
-      "github",
-      "github-actions",
-      "golang",
-      "security",
-      "security-scanner",
-      "supply-chain",
-      "supply-chain-security"
-    ],
-    "categories": [
-      "Compliance",
-      "Data Security"
-    ],
-    "install_options": []
-  },
-  {
-    "name": "c6fc/npk",
-    "repo": "https://github.com/c6fc/npk",
-    "stars": 525,
-    "last_commit": "2024-04-06T16:22:18Z",
-    "language": "JavaScript",
-    "description": "A mostly-serverless distributed hash cracking platform",
-    "tags": [],
-    "categories": [
-      "Serverless Security"
-    ],
-    "install_options": []
-  },
-  {
-    "name": "maester365/maester",
-    "repo": "https://github.com/maester365/maester",
-    "stars": 353,
-    "last_commit": "2024-11-05T22:12:47Z",
-    "language": "HTML",
-    "description": "The core repository for the Maester module with helper cmdlets that will be called from the Pester tests.",
-    "tags": [
-      "devops",
-      "entra",
-      "microsoft-365",
-      "microsoft-graph"
-    ],
-    "categories": [
-      "Uncategorized"
-    ],
-    "install_options": []
-  },
-  {
-    "name": "Permiso-io-tools/CloudConsoleCartographer",
-    "repo": "https://github.com/Permiso-io-tools/CloudConsoleCartographer",
-    "stars": 157,
-    "last_commit": "2024-05-16T14:34:39Z",
-    "language": "PowerShell",
-    "description": "Released at Black Hat Asia on April 18, 2024, Cloud Console Cartographer is a framework for condensing groupings of cloud events (e.g. CloudTrail logs) and mapping them to the original user input actions in the management console UI for simplified analysis and explainability.",
-    "tags": [],
-    "categories": [
-      "Incident Response",
-      "Cloud Monitoring",
-      "Static Analysis"
     ],
     "install_options": []
   }

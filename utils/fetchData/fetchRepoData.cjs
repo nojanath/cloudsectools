@@ -128,7 +128,7 @@ async function fetchData() {
     }
   }
 
-  fs.writeFileSync('src/data/tools.json', JSON.stringify(toolsData, null, 2), 'utf8');
+  fs.writeFileSync('tools.json', JSON.stringify(toolsData, null, 2), 'utf8');
   console.log('Data has been written to src/data/tools.json');
 }
 
