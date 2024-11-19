@@ -277,7 +277,6 @@ const repos = [
     'fsecurelabs/leonidas',
     'fugue/regula',
     'gabrielsoltz/metahub',
-    'gchq/CyberChef',
     'gladstomych/AHHHZURE',
     'gojue/ecapture',
     'goldfiglabs/rpCheckup',
