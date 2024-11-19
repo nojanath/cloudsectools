@@ -14,19 +14,19 @@ jobs:
       contents: read
 
     steps:
-    # # Step 1: Checkout the repository
-    # - name: Checkout repository
-    #   uses: actions/checkout@v4
+    # Step 1: Checkout the repository
+    - name: Checkout repository
+      uses: actions/checkout@v4
 
-    # # Step 2: Setup Node.js
-    # - name: Setup Node.js
-    #   uses: actions/setup-node@v4
-    #   with:
-    #     node-version: 20
+    # Step 2: Setup Node.js
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
 
-    # # Step 3: Install dependencies
-    # - name: Install dependencies
-    #   run: npm install
+    # Step 3: Install dependencies
+    - name: Install dependencies
+      run: npm install
 
     # # Step 4: Run the fetchRepoData script
     # - name: Fetch repository data
