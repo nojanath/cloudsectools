@@ -46,12 +46,10 @@ jobs:
         role-session-name: GitHub_to_AWS_via_FederatedOIDC
         aws-region: us-east-1
 
-    # Step 7: Deploy to S3
-    - name: Deploy to S3
-      uses: jakejarvis/s3-sync-action@v0.5.1
+    # Step 7: Sync to S3
+    - name: Sync to S3
+      uses: aws-actions/s3-sync@v0.5.1
       with:
-        args: --acl public-read --delete
-      env:
-        AWS_S3_BUCKET: ${{ secrets.S3_BUCKET_NAME }}
-        AWS_REGION: us-east-1
-        SOURCE_DIR: ./dist
+        source: './dist'
+        destination: 's3://${{ secrets.S3_BUCKET_NAME }}'
+        delete: true
