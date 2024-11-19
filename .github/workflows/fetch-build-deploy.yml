@@ -48,7 +48,7 @@ jobs:
 
     # Step 7: Sync to S3
     - name: Sync to S3
-      uses: actions/s3-sync@v0.5.1
+      uses: nojanath/s3-sync-action@master
       with:
         source: './dist'
         destination: 's3://${{ secrets.S3_BUCKET_NAME }}'
