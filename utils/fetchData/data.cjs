@@ -281,7 +281,6 @@ const repos = [
     'fugue/regula',
     'gabrielsoltz/metahub',
     'gladstomych/AHHHZURE',
-    'gojue/ecapture',
     'goldfiglabs/rpCheckup',
     'google/trillian',
     'GoogleCloudPlatform/assured-workloads-terraform',
