@@ -16,7 +16,7 @@ import {
   SiTypescript,
 } from "react-icons/si";
 import { FaCoffee, FaStar } from "react-icons/fa";
-import { Tooltip as ReactTooltip } from "react-tooltip";
+import { Tooltip } from "react-tooltip";
 
 type ToolCardProps = {
   tool: Tool;
@@ -108,7 +108,7 @@ export default function ToolCard({ tool }: ToolCardProps) {
         >
           {badgeText}
         </span>
-        <ReactTooltip id="last-updated-tooltip" place="top" delayShow={300} />
+        <Tooltip id="last-updated-tooltip" place="top" delayShow={300} />
       </div>
       <p className="text-sm text-gray-600 mt-4 flex-grow">{tool.description}</p>
       <hr className="my-4 border-gray-300" />
