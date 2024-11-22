@@ -1,16 +1,19 @@
 import { Tool } from "../App";
 import {
-  SiJavascript,
-  SiPython,
-  SiGo,
   SiCplusplus,
-  SiTypescript,
-  SiRuby,
+  SiCsharp,
+  SiCss3,
+  SiGo,
+  SiHtml5,
+  SiJavascript,
+  SiPhp,
   SiPowershell,
+  SiPython,
+  SiRuby,
+  SiRust,
   SiShell,
   SiTerraform,
-  SiRust,
-  SiPhp,
+  SiTypescript,
 } from "react-icons/si";
 import { FaCoffee, FaStar } from "react-icons/fa";
 
@@ -19,18 +22,21 @@ type ToolCardProps = {
 };
 
 const languageIcons: { [key: string]: JSX.Element } = {
-  JavaScript: <SiJavascript className="text-yellow-500" />,
-  Python: <SiPython className="text-blue-500" />,
-  Go: <SiGo className="text-teal-500" />,
+  "C#": <SiCsharp className="text-green-600" />,
   "C++": <SiCplusplus className="text-red-500" />,
-  Java: <FaCoffee className="text-amber-600" />,
-  TypeScript: <SiTypescript className="text-blue-600" />,
-  Ruby: <SiRuby className="text-red-400" />,
-  PowerShell: <SiPowershell className="text-blue-300" />,
-  Shell: <SiShell className="text-gray-500" />,
+  CSS: <SiCss3 className="text-blue-500" />,
+  Go: <SiGo className="text-teal-500" />,
   HCL: <SiTerraform className="text-purple-500" />,
-  Rust: <SiRust className="text-orange-500" />,
+  HTML: <SiHtml5 className="text-orange-500" />,
+  Java: <FaCoffee className="text-amber-600" />,
+  JavaScript: <SiJavascript className="text-yellow-500" />,
   PHP: <SiPhp className="text-violet-500" />,
+  PowerShell: <SiPowershell className="text-blue-300" />,
+  Python: <SiPython className="text-blue-500" />,
+  Ruby: <SiRuby className="text-red-400" />,
+  Rust: <SiRust className="text-orange-500" />,
+  Shell: <SiShell className="text-gray-500" />,
+  TypeScript: <SiTypescript className="text-blue-600" />,
 };
 
 // Helper function to calculate the text and color class for the update badge

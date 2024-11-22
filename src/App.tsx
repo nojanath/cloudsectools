@@ -20,13 +20,18 @@ export default function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [filterLanguage, setFilterLanguage] = useState("");
   const [sortKey, setSortKey] = useState<"" | keyof Tool>("");
+  const [showOldTools, setShowOldTools] = useState(false);
 
   useEffect(() => {
-    document.title = "Open Source Cloud Security Tools";
+    document.title = "Open Source CloudSec Tools";
   }, []); // Runs only once on component mount
+
+  const threeYearsAgo = new Date();
+  threeYearsAgo.setFullYear(threeYearsAgo.getFullYear() - 3);
 
   const filteredTools = toolsData
     .filter((tool) => {
+      // Filter for search query
       if (searchQuery) {
         return (
           tool.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -39,8 +44,16 @@ export default function App() {
       return true;
     })
     .filter((tool) => {
+      // Filter for language
       if (filterLanguage) {
         return tool.language === filterLanguage;
+      }
+      return true;
+    })
+    .filter((tool) => {
+      // Filter for last updated more than 3 years ago
+      if (!showOldTools) {
+        return new Date(tool.last_commit) >= threeYearsAgo;
       }
       return true;
     })
@@ -57,7 +70,7 @@ export default function App() {
   return (
     <div className="bg-gray-50 min-h-screen flex flex-col text-gray-900">
       <div className="max-w-8xl mx-auto p-4 flex-grow flex flex-col">
-        <h1 className="text-3xl font-bold text-center mb-6">Open Source Cloud Security Tools</h1>
+        <h1 className="text-3xl font-bold text-center mb-6">Open Source CloudSec Tools</h1>
 
         <div className="flex flex-col sm:flex-row sm:justify-between items-center mb-4">
           <SortControl sortKey={sortKey} setSortKey={setSortKey} />
@@ -68,6 +81,13 @@ export default function App() {
               new Set(toolsData.map((tool) => tool.language).filter(Boolean))
             )}
           />
+          {/* Toggle Old Tools Button */}
+          <button
+            onClick={() => setShowOldTools(!showOldTools)}
+            className="mb-4 px-4 py-2 bg-blue-200 text-gray-500 rounded-md shadow-sm hover:bg-blue-300"
+          >
+            {showOldTools ? "Hide Inactive Projects" : "Show Inactive Projects"}
+          </button>
         </div>
 
         <input
@@ -77,29 +97,6 @@ export default function App() {
           onChange={(e) => setSearchQuery(e.target.value)}
           className="w-full mb-4 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
-
-        {/* Category Selection */}
-        {/* <div className="flex flex-wrap gap-2 mb-6">
-          {Array.from(
-            new Set(toolsData.flatMap((tool) => tool.categories))
-          ).map((category) => (
-            <button
-              key={category}
-              onClick={() =>
-                setSelectedCategory(
-                  selectedCategory === category ? null : category
-                )
-              }
-              className={`px-3 py-1 rounded-md text-sm font-medium ${
-                selectedCategory === category
-                  ? "bg-blue-600 text-white"
-                  : "bg-blue-100 text-blue-700 hover:bg-blue-300"
-              }`}
-            >
-              {category}
-            </button>
-          ))}
-        </div> */}
 
         <div className="flex-grow flex flex-col">
           {filteredTools.length > 0 ? (
