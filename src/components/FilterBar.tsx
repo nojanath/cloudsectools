@@ -20,7 +20,7 @@ export default function FilterBar({
         id="language_select"
         value={filterLanguage}
         onChange={(e) => setFilterLanguage(e.target.value)}
-        className="block py-2.5 px-0 w-auto text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-400 peer"
+        className="block py-2.5 pr-10 px-0 w-auto text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-400 peer"
       >
         <option value="">All Languages</option>
         {sortedLanguages.map((language) => (
