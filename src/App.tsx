@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ToolList from "./components/ToolList";
 import FilterBar from "./components/FilterBar";
 import SortControl from "./components/SortControl";
+import InactiveProjectsButton from "./components/InactiveProjectsButton";
 import toolsData from "./data/tools.json";
 
 export type Tool = {
@@ -62,7 +63,9 @@ export default function App() {
         return b.stars - a.stars;
       }
       if (sortKey === "last_commit") {
-        return new Date(b.last_commit).getTime() - new Date(a.last_commit).getTime();
+        return (
+          new Date(b.last_commit).getTime() - new Date(a.last_commit).getTime()
+        );
       }
       return 0;
     });
@@ -70,25 +73,9 @@ export default function App() {
   return (
     <div className="bg-gray-50 min-h-screen flex flex-col text-gray-900">
       <div className="max-w-8xl mx-auto p-4 flex-grow flex flex-col">
-        <h1 className="text-3xl font-bold text-center mb-6">Open Source CloudSec Tools</h1>
-
-        <div className="flex flex-col sm:flex-row sm:justify-between items-center mb-4">
-          <SortControl sortKey={sortKey} setSortKey={setSortKey} />
-          <FilterBar
-            filterLanguage={filterLanguage}
-            setFilterLanguage={setFilterLanguage}
-            availableLanguages={Array.from(
-              new Set(toolsData.map((tool) => tool.language).filter(Boolean))
-            )}
-          />
-          {/* Toggle Old Tools Button */}
-          <button
-            onClick={() => setShowOldTools(!showOldTools)}
-            className="mb-4 px-4 py-2 bg-blue-200 text-gray-500 rounded-md shadow-sm hover:bg-blue-300"
-          >
-            {showOldTools ? "Hide Inactive Projects" : "Show Inactive Projects"}
-          </button>
-        </div>
+        <h1 className="text-3xl font-bold text-center mb-6">
+          Open Source CloudSec Tools
+        </h1>
 
         <input
           type="text"
@@ -98,12 +85,31 @@ export default function App() {
           className="w-full mb-4 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
 
+        <div className="flex flex-col sm:flex-row justify-center sm:justify-between items-center mb-4">
+          <SortControl sortKey={sortKey} setSortKey={setSortKey} />
+          <FilterBar
+            filterLanguage={filterLanguage}
+            setFilterLanguage={setFilterLanguage}
+            availableLanguages={Array.from(
+              new Set(toolsData.map((tool) => tool.language).filter(Boolean))
+            )}
+          />
+          <div className="flex justify-center w-auto sm:w-auto">
+            <InactiveProjectsButton
+              showOldTools={showOldTools}
+              setShowOldTools={setShowOldTools}
+            />
+          </div>
+        </div>
+
         <div className="flex-grow flex flex-col">
           {filteredTools.length > 0 ? (
             <ToolList tools={filteredTools} />
           ) : (
             <div className="flex flex-col items-center justify-center min-h-[50vh]">
-              <p className="text-gray-500 text-lg">No results found. Try adjusting your search.</p>
+              <p className="text-gray-500 text-lg">
+                No results found. Try adjusting your search.
+              </p>
             </div>
           )}
         </div>
