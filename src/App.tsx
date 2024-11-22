@@ -3,7 +3,7 @@ import ToolList from "./components/ToolList";
 import FilterBar from "./components/FilterBar";
 import SortControl from "./components/SortControl";
 import InactiveProjectsButton from "./components/InactiveProjectsButton";
-import StatsModal from "./components/StatsModal"; // Import the modal component
+import StatsModal from "./components/StatsModal";
 import toolsData from "./data/tools.json";
 
 export type Tool = {
@@ -23,7 +23,7 @@ export default function App() {
   const [filterLanguage, setFilterLanguage] = useState("");
   const [sortKey, setSortKey] = useState<"" | keyof Tool>("");
   const [showOldTools, setShowOldTools] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false); // State for modal visibility
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     document.title = "Open Source CloudSec Tools";
@@ -99,7 +99,6 @@ export default function App() {
           {/* Stats Link */}
           <button
             onClick={() => setIsModalOpen(true)}
-            // className="py-2 px-4 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
             className="block py-2.5 px-0 w-auto text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-400 rounded-none"
           >
             Stats
