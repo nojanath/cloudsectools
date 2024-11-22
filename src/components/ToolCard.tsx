@@ -57,6 +57,12 @@ function getUpdateBadge(date: string): { text: string; color: string } {
   return { text: "Updated 5+ years ago", color: "bg-red-600 text-white" };
 }
 
+// Helper function to format the date
+function formatDate(dateString: string): string {
+  const date = new Date(dateString);
+  return date.toISOString().replace("T", " ").slice(0, 19) + " UTC";
+}
+
 export default function ToolCard({ tool }: ToolCardProps) {
   const { text: badgeText, color: badgeColor } = getUpdateBadge(tool.last_commit);
 
@@ -78,10 +84,11 @@ export default function ToolCard({ tool }: ToolCardProps) {
           {languageIcons[tool.language] && <span>{languageIcons[tool.language]}</span>}
         </div>
       </div>
-      {/* Badge for last updated */}
+      {/* Badge for last updated with tooltip */}
       <div className="flex items-center justify-start mt-4">
         <span
           className={`px-2 py-1 rounded-full text-xs font-medium ${badgeColor}`}
+          title={formatDate(tool.last_commit)} // Tooltip with formatted date
         >
           {badgeText}
         </span>

@@ -25,7 +25,7 @@ export default function App() {
 
   useEffect(() => {
     document.title = "Open Source CloudSec Tools";
-  }, []); // Runs only once on component mount
+  }, []);
 
   const threeYearsAgo = new Date();
   threeYearsAgo.setFullYear(threeYearsAgo.getFullYear() - 3);
@@ -82,10 +82,11 @@ export default function App() {
           placeholder="Search tools..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full mb-4 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="w-3/4 mx-auto mb-4 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
 
-        <div className="flex flex-col sm:flex-row justify-center sm:justify-between items-center mb-4">
+        {/* <div className="flex flex-col sm:flex-row justify-center sm:justify-between items-center mb-4"> */}
+        <div className="flex flex-wrap justify-center gap-4 mb-4">
           <SortControl sortKey={sortKey} setSortKey={setSortKey} />
           <FilterBar
             filterLanguage={filterLanguage}
