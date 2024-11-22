@@ -16,6 +16,7 @@ import {
   SiTypescript,
 } from "react-icons/si";
 import { FaCoffee, FaStar } from "react-icons/fa";
+import { Tooltip as ReactTooltip } from "react-tooltip";
 
 type ToolCardProps = {
   tool: Tool;
@@ -47,13 +48,23 @@ function getUpdateBadge(date: string): { text: string; color: string } {
     (today.getTime() - updatedDate.getTime()) / (1000 * 60 * 60 * 24)
   );
 
-  if (differenceInDays <= 7) return { text: "Updated this week", color: "bg-green-500 text-white" };
-  if (differenceInDays <= 30) return { text: "Updated last month", color: "bg-green-300 text-gray-800" };
-  if (differenceInDays <= 365) return { text: "Updated this year", color: "bg-yellow-300 text-gray-800" };
-  if (differenceInDays <= 730) return { text: "Updated last year", color: "bg-yellow-500 text-gray-800" };
-  if (differenceInDays <= 1095) return { text: "Updated 2 years ago", color: "bg-orange-500 text-gray-800" };
-  if (differenceInDays <= 1460) return { text: "Updated 3 years ago", color: "bg-red-400 text-white" };
-  if (differenceInDays <= 1825) return { text: "Updated 4 years ago", color: "bg-red-500 text-white" };
+  if (differenceInDays <= 7)
+    return { text: "Updated this week", color: "bg-green-500 text-white" };
+  if (differenceInDays <= 30)
+    return { text: "Updated last month", color: "bg-green-300 text-gray-800" };
+  if (differenceInDays <= 365)
+    return { text: "Updated this year", color: "bg-yellow-300 text-gray-800" };
+  if (differenceInDays <= 730)
+    return { text: "Updated last year", color: "bg-yellow-500 text-gray-800" };
+  if (differenceInDays <= 1095)
+    return {
+      text: "Updated 2 years ago",
+      color: "bg-orange-500 text-gray-800",
+    };
+  if (differenceInDays <= 1460)
+    return { text: "Updated 3 years ago", color: "bg-red-400 text-white" };
+  if (differenceInDays <= 1825)
+    return { text: "Updated 4 years ago", color: "bg-red-500 text-white" };
   return { text: "Updated 5+ years ago", color: "bg-red-600 text-white" };
 }
 
@@ -64,7 +75,9 @@ function formatDate(dateString: string): string {
 }
 
 export default function ToolCard({ tool }: ToolCardProps) {
-  const { text: badgeText, color: badgeColor } = getUpdateBadge(tool.last_commit);
+  const { text: badgeText, color: badgeColor } = getUpdateBadge(
+    tool.last_commit
+  );
 
   return (
     <a
@@ -81,17 +94,21 @@ export default function ToolCard({ tool }: ToolCardProps) {
         </div>
         <div className="flex items-center space-x-2">
           <span className="text-gray-700">{tool.language}</span>
-          {languageIcons[tool.language] && <span>{languageIcons[tool.language]}</span>}
+          {languageIcons[tool.language] && (
+            <span>{languageIcons[tool.language]}</span>
+          )}
         </div>
       </div>
-      {/* Badge for last updated with tooltip */}
+      {/* Badge for last updated with ReactTooltip */}
       <div className="flex items-center justify-start mt-4">
         <span
           className={`px-2 py-1 rounded-full text-xs font-medium ${badgeColor}`}
-          title={formatDate(tool.last_commit)} // Tooltip with formatted date
+          data-tooltip-id="last-updated-tooltip"
+          data-tooltip-content={formatDate(tool.last_commit)}
         >
           {badgeText}
         </span>
+        <ReactTooltip id="last-updated-tooltip" place="top" delayShow={300} />
       </div>
       <p className="text-sm text-gray-600 mt-4 flex-grow">{tool.description}</p>
       <hr className="my-4 border-gray-300" />
