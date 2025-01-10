@@ -2,6 +2,8 @@ name: Fetch, Build, and Deploy to S3
 
 on:
   workflow_dispatch: # Allow manual triggering
+  schedule:
+    - cron: "0 0 * * *" # Runs daily at midnight UTC
 
 jobs:
   fetch-and-deploy:
