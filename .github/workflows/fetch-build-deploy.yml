@@ -25,7 +25,7 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    # # Step 4: Run the fetchRepoData script
+    # Step 4: Run the fetchRepoData script
     - name: Fetch repository data
       run: node utils/fetchData/fetchRepoData.cjs
       env:
@@ -35,7 +35,7 @@ jobs:
     - name: Build the project
       run: npm run build
 
-    # Step 6: Deploy to S3 using OIDC
+    # Step 6: Configure AWS Credentials
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
@@ -52,3 +52,10 @@ jobs:
         AWS_S3_BUCKET: ${{ secrets.S3_BUCKET_NAME }}
         AWS_REGION: us-east-1
         SOURCE_DIR: ./dist
+
+    # Step 8: Invalidate CloudFront Cache
+    - name: Invalidate CloudFront Cache
+      run: |
+        aws cloudfront create-invalidation \
+          --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
+          --paths "/*"
