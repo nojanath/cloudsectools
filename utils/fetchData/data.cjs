@@ -303,6 +303,7 @@ const repos = [
     'kurmiashish/S3Insights',
     'lateralblast/lunar',
     'lirlia/prel',
+    'luminaut-org/luminaut',
     'lyft/cartography',
     'maester365/maester',
     'matthewdfuller/safer-scps',
