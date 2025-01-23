@@ -396,6 +396,7 @@ const repos = [
     'tmobile/pacbot',
     'tomdev/teh_s3_bucketeers',
     'turbot/steampipe',
+    'turnerlabs/antiope',
     'Ucnt/aws-s3-data-finder',
     'udondan/iam-floyd',
     'unknownhad/CloudIntel',
