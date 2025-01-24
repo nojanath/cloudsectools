@@ -266,6 +266,7 @@ const repos = [
     'dxa4481/truffleHog',
     'edera-dev/am-i-isolated',
     'eerkunt/terraform-compliance',
+    'ekristen/aws-nuke',
     'elastic/dorothy',
     'elitest/Redboto',
     'endgameinc/aws-logsearch',
