@@ -333,6 +333,7 @@ const repos = [
     'nullenc0de/servicelens',
     'octo-sts/app',
     'offensive-actions/azure-storage-reverse-shell',
+    'okigan/awscurl',
     'open-policy-agent/gatekeeper-library',
     'openai/openai-security-bots',
     'orcasecurity-research/kte',
