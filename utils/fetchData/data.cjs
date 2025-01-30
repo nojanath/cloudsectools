@@ -219,6 +219,7 @@ const repos = [
     'awslabs/amazon-guardduty-tester',
     'awslabs/coldsnap',
     'awslabs/sustainability-scanner',
+    'awslabs/threat-composer',
     'Azure/dalec',
     'Azure/Stormspotter',
     'bear/s3scan',
