@@ -338,6 +338,7 @@ const repos = [
     'okigan/awscurl',
     'open-policy-agent/gatekeeper-library',
     'openai/openai-security-bots',
+    'openraven/magpie',
     'orcasecurity-research/kte',
     'ovotech/cloud-key-rotator',
     'padok-team/cognito-scanner',
