@@ -255,6 +255,7 @@ const repos = [
     'datadog/grimoire',
     'datadog/guarddog',
     'datadog/stratus-red-team',
+    'deepfence/threatmapper',
     'DenizParlak/Zeus',
     'disruptops/cred_scanner',
     'disruptops/resource-counter',
