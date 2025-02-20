@@ -393,6 +393,7 @@ const repos = [
     'Stelligent/cfn_nag',
     'StevenSmiley/aws-mine',
     'suzuki-shunsuke/tfprovidercheck',
+    'synfinatic/aws-sso-cli',
     'SygniaLabs/Cirrus',
     'SySS-Research/azurenum',
     'tensult/cloud-reports',
