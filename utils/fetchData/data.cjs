@@ -245,6 +245,7 @@ const repos = [
     'cloudquery/cloudquery',
     'cloudsploit/scans',
     'clutchsecurity/federator',
+    'common-fate/granted',
     'controlplaneio/simulator',
     'cr0hn/festin',
     'cyberark/SkyArk',
