@@ -192,7 +192,7 @@ const categories = {
         "throttling",
         "rate limiting"
     ]
-    };
+};
 
 const repos = [
     '0xsha/cloudbrute',
@@ -213,6 +213,7 @@ const repos = [
     'arkadiyt/aws_public_ips',
     'Atticuss/bucketcat',
     'aws-cloudformation/cloudformation-guard',
+    'shabarkin/aws-enumerator',
     'aws-samples/automated-security-helper',
     'aws/aws-imds-packet-analyzer',
     'aws/aws-secretsmanager-agent',
@@ -258,6 +259,7 @@ const repos = [
     'datadog/stratus-red-team',
     'deepfence/threatmapper',
     'DenizParlak/Zeus',
+    'dievus/AWeSomeUserFinder',
     'disruptops/cred_scanner',
     'disruptops/resource-counter',
     'domain-protect/domain-protect-gcp',
@@ -298,11 +300,13 @@ const repos = [
     'iann0036/iamlive',
     'iknowjason/PurpleCloud',
     'infrahouse/terraform-aws-secret',
+    'initstring/cloud_enum',
     'janiko71/aws-inventory',
     'jonrau1/AWS-ComplianceMachineDontStop',
     'jonrau1/ElectricEye',
     'jonrau1/SyntheticSun',
     'jordanpotti/AWSBucketDump',
+    'joshlarsen/aws-recon',
     'KatTraxler/gcpdocs',
     'kurmiashish/S3Insights',
     'lateralblast/lunar',
@@ -415,6 +419,7 @@ const repos = [
     'welldone-cloud/aws-list-resources',
     'welldone-cloud/aws-scps-for-sandbox-and-training-accounts',
     'welldone-cloud/aws-summarize-account-activity',
+    'WhiteOakSecurity/GoAWSConsoleSpray',
     'whitfin/s3-meta',
     'whitfin/s3-utils',
     'widdix/aws-amicleaner',
@@ -427,6 +432,6 @@ const repos = [
     'yelp/detect-secrets',
     'z0ph/aws-security-toolbox',
     'zricethezav/gitleaks',
-  ];
-  
-  module.exports = { repos, categories };
+];
+
+module.exports = { repos, categories };
