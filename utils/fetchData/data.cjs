@@ -282,6 +282,7 @@ const repos = [
     'falcosecurity/falco',
     'FishermansEnemy/bucket_finder',
     'flosell/trailscraper',
+    'FogSecurity/finders-keypers',
     'fsecurelabs/awspx',
     'fsecurelabs/leonidas',
     'fugue/regula',
