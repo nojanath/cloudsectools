@@ -1,6 +1,6 @@
-# CloudSecTools  
+# CloudSec Tools  
 
-CloudSecTools is a curated collection of open-source cloud security tools, helping security professionals, researchers, and engineers find the best resources for securing cloud environments.  
+CloudSec Tools is a curated collection of open-source cloud security tools, helping security professionals, researchers, and engineers find the best resources for securing cloud environments.  
 
 ## 🚀 Features  
 - 🔍 **Curated List** – Hand-picked, high-quality cloud security tools.  
