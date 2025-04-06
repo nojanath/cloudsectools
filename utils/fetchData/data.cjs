@@ -222,6 +222,7 @@ const repos = [
     'awslabs/threat-composer',
     'Azure/dalec',
     'Azure/Stormspotter',
+    'azurekid/blackcat',
     'bear/s3scan',
     'benkehoe/aws-whoami-golang',
     'BishopFox/cloudfox',
