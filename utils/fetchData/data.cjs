@@ -284,6 +284,7 @@ const repos = [
     'FishermansEnemy/bucket_finder',
     'flosell/trailscraper',
     'FogSecurity/finders-keypers',
+    'FogSecurity/yes3-scanner',
     'fsecurelabs/awspx',
     'fsecurelabs/leonidas',
     'fugue/regula',
