@@ -218,6 +218,7 @@ const repos = [
     'aws/aws-secretsmanager-agent',
     'awslabs/amazon-guardduty-tester',
     'awslabs/coldsnap',
+    'awslabs/StsOidcDriver',
     'awslabs/sustainability-scanner',
     'awslabs/threat-composer',
     'Azure/dalec',
