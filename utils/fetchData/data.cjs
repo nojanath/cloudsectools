@@ -237,6 +237,7 @@ const repos = [
     'c6fc/npk',
     'canonical/cloud-init',
     'carnal0wnage/weirdAAL',
+    'ccbrown/cloud-snitch',
     'CCob/okta-terrify',
     'cesar-rodriguez/terrascan',
     'Checkmarx/kics',
