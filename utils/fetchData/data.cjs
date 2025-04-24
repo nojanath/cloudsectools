@@ -439,6 +439,7 @@ const repos = [
     'yanilov/control-tags',
     'yelp/detect-secrets',
     'z0ph/aws-security-toolbox',
+    'zoph-io/kye',
     'zricethezav/gitleaks',
 ];
 
