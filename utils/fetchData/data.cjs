@@ -243,6 +243,7 @@ const repos = [
     'Checkmarx/kics',
     'cjsrkd3321/aws-security-architectures',
     'cloud-copilot/iam-expand',
+    'cloud-copilot/iam-lens',
     'cloud-copilot/iam-simulate',
     'cloud-custodian/cloud-custodian',
     'cloudquery/cloudquery',
