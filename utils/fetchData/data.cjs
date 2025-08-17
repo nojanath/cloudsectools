@@ -339,6 +339,7 @@ const repos = [
     'Netflix-Skunkworks/aws-credential-compromise-detection',
     'Netflix/repokid',
     'Netflix/security_monkey',
+    'NetSPI/ATEAM',
     'NetSPI/gcpwn',
     'nianticlabs/venator',
     'nozaq/terraform-aws-secure-baseline',
