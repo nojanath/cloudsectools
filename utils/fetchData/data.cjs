@@ -196,6 +196,7 @@ const categories = {
 
 const repos = [
     '0xsha/cloudbrute',
+    '8ales/Azure-AppHunter',
     '99designs/aws-vault',
     'aaparmeggiani/s3find',
     'abhn/S3Scan',
@@ -292,6 +293,7 @@ const repos = [
     'fsecurelabs/leonidas',
     'fugue/regula',
     'gabrielsoltz/metahub',
+    'gl4ssesbo1/TagNabit',
     'gladstomych/AHHHZURE',
     'goldfiglabs/rpCheckup',
     'google/trillian',
