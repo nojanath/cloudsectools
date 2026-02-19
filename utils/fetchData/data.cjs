@@ -364,6 +364,7 @@ const repos = [
     'Permiso-io-tools/cloudtail',
     'Permiso-io-tools/SkyScalpel',
     'planetscale/cloudranger',
+    'plerionhq/sns-buster',
     'prevade/cloudjack',
     'primait/nuvola',
     'primeharbor/pht-securityhub-management',
