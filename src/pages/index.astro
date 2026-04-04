@@ -2,89 +2,24 @@
 import Layout from '../layouts/Layout.astro';
 import toolsData from '../data/tools.json';
 import '../styles/global.css';
-
-const LANGUAGE_COLORS: Record<string, string> = {
-  JavaScript: '#F7DF1E',
-  Python: '#3776AB',
-  Go: '#00ADD8',
-  'C++': '#00599C',
-  Rust: '#DEA584',
-  Java: '#F89820',
-  TypeScript: '#3178C6',
-  PHP: '#8892BF',
-  HTML: '#E34F26',
-  CSS: '#264DE4',
-  Shell: '#89E051',
-  Ruby: '#701516',
-  'C#': '#178600',
-  HCL: '#844FBA',
-  PowerShell: '#012456',
-  Unknown: '#BDC3C7',
-};
-
-function getUpdateBadge(date: string): { text: string; color: string } {
-  const today = new Date();
-  const updatedDate = new Date(date);
-  const diffDays = Math.floor((today.getTime() - updatedDate.getTime()) / (1000 * 60 * 60 * 24));
-
-  if (diffDays <= 7) return { text: 'Updated this week', color: 'bg-green-500 text-white' };
-  if (diffDays <= 30) return { text: 'Updated last month', color: 'bg-green-300 text-gray-800' };
-  if (diffDays <= 365) return { text: 'Updated this year', color: 'bg-yellow-300 text-gray-800' };
-  if (diffDays <= 730) return { text: 'Updated last year', color: 'bg-yellow-500 text-gray-800' };
-  if (diffDays <= 1095) return { text: 'Updated 2 years ago', color: 'bg-orange-500 text-gray-800' };
-  if (diffDays <= 1460) return { text: 'Updated 3 years ago', color: 'bg-red-400 text-white' };
-  if (diffDays <= 1825) return { text: 'Updated 4 years ago', color: 'bg-red-500 text-white' };
-  return { text: 'Updated 5+ years ago', color: 'bg-red-600 text-white' };
-}
-
-function formatDate(dateString: string): string {
-  const date = new Date(dateString);
-  return date.toISOString().replace('T', ' ').slice(0, 19) + ' UTC';
-}
+import type { Tool } from '../utils/types';
+import { getUpdateBadge, formatDate } from '../utils/badges';
+import { buildPieChart } from '../utils/charts';
 
 const threeYearsAgo = new Date();
 threeYearsAgo.setFullYear(threeYearsAgo.getFullYear() - 3);
 const threeYearsAgoISO = threeYearsAgo.toISOString();
 
-const languages = [...new Set(toolsData.map((t: any) => t.language).filter(Boolean))].sort();
+const languages = [...new Set((toolsData as Tool[]).map((t) => t.language).filter(Boolean))].sort();
 
-// Pre-compute badge info for each tool
-const tools = toolsData.map((tool: any) => ({
+const tools = (toolsData as Tool[]).map((tool) => ({
   ...tool,
   badge: getUpdateBadge(tool.last_commit),
   formattedDate: formatDate(tool.last_commit),
+  formattedStars: tool.stars.toLocaleString(),
 }));
 
-// Stats for the modal
-const languageCounts = toolsData.reduce((acc: Record<string, number>, tool: any) => {
-  const lang = tool.language || 'Unknown';
-  acc[lang] = (acc[lang] || 0) + 1;
-  return acc;
-}, {});
-
-const sortedLangs = Object.entries(languageCounts)
-  .sort(([, a], [, b]) => (b as number) - (a as number));
-const topLangs = sortedLangs.slice(0, 10);
-const othersCount = sortedLangs.slice(10).reduce((acc, [, count]) => acc + (count as number), 0);
-const pieData = [...topLangs.map(([lang, count]) => ({ label: lang, value: count as number, color: LANGUAGE_COLORS[lang] || '#999' }))];
-if (othersCount > 0) pieData.push({ label: 'Others', value: othersCount, color: '#999' });
-const pieTotal = pieData.reduce((sum, d) => sum + d.value, 0);
-
-// Build SVG pie paths
-let currentAngle = 0;
-const pieSlices = pieData.map((d) => {
-  const sliceAngle = (d.value / pieTotal) * 2 * Math.PI;
-  const x1 = Math.cos(currentAngle);
-  const y1 = Math.sin(currentAngle);
-  currentAngle += sliceAngle;
-  const x2 = Math.cos(currentAngle);
-  const y2 = Math.sin(currentAngle);
-  const largeArc = sliceAngle > Math.PI ? 1 : 0;
-  return {
-    ...d,
-    path: `M 0 0 L ${x1} ${y1} A 1 1 0 ${largeArc} 1 ${x2} ${y2} Z`,
-  };
-});
+const { slices: pieSlices, data: pieData } = buildPieChart(toolsData as Tool[]);
 ---
 
 <Layout title="CloudSecTools - Open Source Cloud Security Tools">
@@ -99,7 +34,7 @@ const pieSlices = pieData.map((d) => {
         <span class="text-slate-300">Made by</span>
         <span class="text-white font-semibold bg-gradient-to-r from-sky-400 to-cyan-300 bg-clip-text text-transparent">Cloudventory</span>
         <span class="text-slate-500 mx-1">|</span>
-        <span class="text-slate-300 group-hover:text-white transition-colors duration-200">Search your entire AWS infrastructure in seconds</span>
+        <span class="hidden sm:inline text-slate-300 group-hover:text-white transition-colors duration-200">Search your entire AWS infrastructure in seconds</span>
         <svg class="w-4 h-4 text-sky-400 transform group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
         </svg>
@@ -173,7 +108,7 @@ const pieSlices = pieData.map((d) => {
           <div class="flex justify-between mt-2">
             <div class="flex items-center space-x-1">
               <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-              <span class="text-gray-700">{tool.stars}</span>
+              <span class="text-gray-700">{tool.formattedStars}</span>
             </div>
             <div class="flex items-center space-x-2">
               <span class="text-gray-700">{tool.language}</span>
