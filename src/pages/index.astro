@@ -151,6 +151,9 @@ const pieSlices = pieData.map((d) => {
       </button>
     </div>
 
+    <!-- Tool Count -->
+    <p id="tool-count" class="text-center text-sm text-gray-500 mb-4"></p>
+
     <!-- Tool Grid -->
     <div id="tool-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 min-h-[50vh]">
       {tools.map((tool) => (
@@ -245,12 +248,35 @@ const pieSlices = pieData.map((d) => {
     const inactiveToggle = document.getElementById('inactive-toggle');
     const toolGrid = document.getElementById('tool-grid');
     const emptyState = document.getElementById('empty-state');
+    const toolCount = document.getElementById('tool-count');
     const statsButton = document.getElementById('stats-button');
     const statsModal = document.getElementById('stats-modal');
     const statsClose = document.getElementById('stats-close');
 
     let showInactive = false;
     const allCards = [...toolGrid.querySelectorAll('.tool-card')];
+    const totalTools = allCards.length;
+
+    // Restore state from URL params
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('q')) searchInput.value = params.get('q');
+    if (params.get('lang')) languageSelect.value = params.get('lang');
+    if (params.get('sort')) sortSelect.value = params.get('sort');
+    if (params.get('inactive') === '1') {
+      showInactive = true;
+      inactiveToggle.textContent = 'Hide Inactive';
+      inactiveToggle.title = 'Hide projects older than 3 years old.';
+    }
+
+    function updateURL() {
+      const p = new URLSearchParams();
+      if (searchInput.value) p.set('q', searchInput.value);
+      if (languageSelect.value) p.set('lang', languageSelect.value);
+      if (sortSelect.value) p.set('sort', sortSelect.value);
+      if (showInactive) p.set('inactive', '1');
+      const qs = p.toString();
+      history.replaceState(null, '', qs ? '?' + qs : window.location.pathname);
+    }
 
     function applyFilters() {
       const query = searchInput.value.toLowerCase();
@@ -266,17 +292,14 @@ const pieSlices = pieData.map((d) => {
 
         let show = true;
 
-        // Search filter
         if (query && !name.includes(query) && !desc.includes(query) && !tags.includes(query)) {
           show = false;
         }
 
-        // Language filter
         if (language && lang !== language) {
           show = false;
         }
 
-        // Inactive filter
         if (!showInactive && new Date(lastCommit) < new Date(threeYearsAgoISO)) {
           show = false;
         }
@@ -297,6 +320,11 @@ const pieSlices = pieData.map((d) => {
         visibleCards.forEach(card => toolGrid.appendChild(card));
       }
 
+      // Tool count
+      toolCount.textContent = visibleCards.length === totalTools
+        ? `${totalTools} tools`
+        : `Showing ${visibleCards.length} of ${totalTools} tools`;
+
       // Empty state
       if (visibleCards.length === 0) {
         toolGrid.classList.add('hidden');
@@ -307,6 +335,8 @@ const pieSlices = pieData.map((d) => {
         emptyState.classList.add('hidden');
         emptyState.classList.remove('flex');
       }
+
+      updateURL();
     }
 
     searchInput.addEventListener('input', applyFilters);
@@ -323,19 +353,18 @@ const pieSlices = pieData.map((d) => {
     });
 
     // Stats modal
-    statsButton.addEventListener('click', () => {
+    function openModal() {
       statsModal.classList.remove('hidden');
       statsModal.classList.add('flex');
-    });
-    statsClose.addEventListener('click', () => {
+    }
+    function closeModal() {
       statsModal.classList.add('hidden');
       statsModal.classList.remove('flex');
-    });
+    }
+    statsButton.addEventListener('click', openModal);
+    statsClose.addEventListener('click', closeModal);
     statsModal.addEventListener('click', (e) => {
-      if (e.target === statsModal) {
-        statsModal.classList.add('hidden');
-        statsModal.classList.remove('flex');
-      }
+      if (e.target === statsModal) closeModal();
     });
 
     // Tag clicks populate search
@@ -350,7 +379,18 @@ const pieSlices = pieData.map((d) => {
       }
     });
 
-    // Initial filter (hide inactive by default)
+    // Keyboard shortcuts
+    document.addEventListener('keydown', (e) => {
+      // "/" to focus search (when not already in an input)
+      if (e.key === '/' && !['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName)) {
+        e.preventDefault();
+        searchInput.focus();
+      }
+      // Escape to close modal
+      if (e.key === 'Escape') closeModal();
+    });
+
+    // Initial filter
     applyFilters();
   </script>
 </Layout>
