@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const { categories } = require('./data.cjs');
 
 const reposFile = path.resolve(__dirname, '../../repos.txt');
 const repos = fs.readFileSync(reposFile, 'utf8')
@@ -42,23 +41,6 @@ async function checkRateLimit() {
   }
 }
 
-function assignCategory(description, tags, language) {
-  const lowerDesc = description.toLowerCase();
-  const lowerTags = tags.map(tag => tag.toLowerCase());
-  const matchedCategories = [];
-
-  for (const [category, keywords] of Object.entries(categories)) {
-    if (
-      keywords.some(keyword => lowerDesc.includes(keyword)) ||
-      keywords.some(keyword => lowerTags.includes(keyword)) ||
-      keywords.some(keyword => language.toLowerCase().includes(keyword))
-    ) {
-      matchedCategories.push(category);
-    }
-  }
-  return matchedCategories.length > 0 ? matchedCategories : ["Uncategorized"];
-}
-
 async function fetchRepoData(repo) {
   // Fetch repo info and topics in parallel
   const [repoData, topicsData] = await Promise.all([
@@ -73,21 +55,15 @@ async function fetchRepoData(repo) {
   );
 
   const fullRepoName = `${repoData.owner.login}/${repoData.name}`;
-  const description = repoData.description || "";
-  const tags = topicsData.names || [];
-  const language = repoData.language || "";
-  const assignedCategories = assignCategory(description, tags, language);
 
   return {
     name: fullRepoName,
     repo: repoData.html_url,
     stars: repoData.stargazers_count,
     last_commit: branchData.commit.commit.committer.date,
-    language,
-    description,
-    tags,
-    categories: assignedCategories,
-    install_options: [],
+    language: repoData.language || "",
+    description: repoData.description || "",
+    tags: topicsData.names || [],
   };
 }
 
