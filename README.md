@@ -14,7 +14,7 @@ Visit **[CloudSecTools.com](https://cloudsectools.com)** to explore the tools.
 ## 📚 Contributing  
 Contributions are welcome! To suggest a new tool:  
 1. Fork the repo  
-2. Add the tool to the utils/fetchData/data.cjs file. Keep it in alphabetical order, you monsters.
+2. Add the tool to `repos.txt` (one repo per line, e.g. `owner/repo`). Keep it in alphabetical order, you monsters.
 3. Submit a pull request  
 
 ## 📜 License  

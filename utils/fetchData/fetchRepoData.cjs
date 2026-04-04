@@ -1,6 +1,13 @@
 const axios = require('axios');
 const fs = require('fs');
-const { repos, categories } = require('./data.cjs'); // Import repos and categories
+const path = require('path');
+const { categories } = require('./data.cjs');
+
+const reposFile = path.resolve(__dirname, '../../repos.txt');
+const repos = fs.readFileSync(reposFile, 'utf8')
+  .split('\n')
+  .map(line => line.trim())
+  .filter(line => line && !line.startsWith('#'));
 
 // Use an environment variable for the GitHub token
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
