@@ -1,24 +1,19 @@
-# CloudSec Tools  
+# CloudSec Tools
 
-CloudSec Tools is a curated collection of open-source cloud security tools, helping security professionals, researchers, and engineers find the best resources for securing cloud environments.  
+A directory of open-source cloud security tools at [cloudsectools.com](https://cloudsectools.com).
 
-## 🚀 Features  
-- 🔍 **Curated List** – Hand-picked, high-quality cloud security tools.  
-- ☁️ **Multi-Cloud Support** – Tools for AWS, Azure, GCP, and Kubernetes.  
-- 📖 **Up-to-Date** – Regularly updated with new tools and insights.  
-- 🎯 **Categories** – Organized for easy navigation: IAM, auditing, logging, networking, and more.  
+Search, filter, and sort tools across AWS, Azure, GCP, and Kubernetes. Data is pulled fresh from GitHub daily.
 
-## 📖 Usage  
-Visit **[CloudSecTools.com](https://cloudsectools.com)** to explore the tools.  
+## Contributing
 
-## 📚 Contributing  
-Contributions are welcome! To suggest a new tool:  
-1. Fork the repo  
+1. Fork the repo
 2. Add the tool to `repos.txt` (one repo per line, e.g. `owner/repo`). Keep it in alphabetical order, you monsters.
-3. Submit a pull request  
+3. Submit a pull request
 
-## 📜 License  
-This project is licensed under the **MIT License**.  
+## License
 
-## 🤝 Connect  
-Follow updates on [LinkedIn](https://linkedin.com/in/thompsoninfosec) or reach out via [GitHub Issues](https://github.com/nojanath/cloudsectools/issues).  
+MIT
+
+## Contact
+
+[LinkedIn](https://linkedin.com/in/thompsoninfosec) | [GitHub Issues](https://github.com/nojanath/cloudsectools/issues)
