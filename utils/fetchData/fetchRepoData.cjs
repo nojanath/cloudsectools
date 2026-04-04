@@ -1,4 +1,3 @@
-const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
 const { categories } = require('./data.cjs');
@@ -9,7 +8,6 @@ const repos = fs.readFileSync(reposFile, 'utf8')
   .map(line => line.trim())
   .filter(line => line && !line.startsWith('#'));
 
-// Use an environment variable for the GitHub token
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 
 if (!GITHUB_TOKEN) {
@@ -17,19 +15,27 @@ if (!GITHUB_TOKEN) {
   process.exit(1);
 }
 
+const headers = {
+  Authorization: `Bearer ${GITHUB_TOKEN}`,
+  Accept: 'application/vnd.github+json',
+};
+
+async function ghFetch(url) {
+  const res = await fetch(url, { headers });
+  if (!res.ok) {
+    throw new Error(`${url} responded ${res.status}: ${await res.text()}`);
+  }
+  return res.json();
+}
+
 async function checkRateLimit() {
-  const rateLimitResponse = await axios.get('https://api.github.com/rate_limit', {
-    headers: {
-      Authorization: `Bearer ${GITHUB_TOKEN}`,
-    },
-  });
+  const data = await ghFetch('https://api.github.com/rate_limit');
+  const remaining = data.resources.core.remaining;
+  const resetTime = data.resources.core.reset;
 
-  const remainingRequests = rateLimitResponse.data.resources.core.remaining;
-  const resetTime = rateLimitResponse.data.resources.core.reset;
+  console.log(`Remaining requests: ${remaining}`);
 
-  console.log(`Remaining requests: ${remainingRequests}`);
-
-  if (remainingRequests === 0) {
+  if (remaining === 0) {
     const waitTime = resetTime * 1000 - Date.now() + 5000;
     console.log(`Rate limit reached. Waiting for ${Math.round(waitTime / 1000)} seconds...`);
     await new Promise(resolve => setTimeout(resolve, waitTime));
@@ -55,60 +61,31 @@ function assignCategory(description, tags, language) {
 }
 
 async function fetchLastAcceptedCommit(repo) {
-  try {
-    const [owner, name] = repo.split("/");
-    const repoInfoResponse = await axios.get(`https://api.github.com/repos/${owner}/${name}`, {
-      headers: {
-        Authorization: `Bearer ${GITHUB_TOKEN}`,
-      },
-    });
-
-    const defaultBranch = repoInfoResponse.data.default_branch;
-
-    const branchResponse = await axios.get(
-      `https://api.github.com/repos/${owner}/${name}/branches/${defaultBranch}`,
-      {
-        headers: {
-          Authorization: `Bearer ${GITHUB_TOKEN}`,
-        },
-      }
-    );
-
-    return branchResponse.data.commit.commit.committer.date;
-  } catch (error) {
-    console.error(`Error fetching last commit for ${repo}:`, error.response?.data || error.message);
-    throw error;
-  }
+  const [owner, name] = repo.split("/");
+  const repoInfo = await ghFetch(`https://api.github.com/repos/${owner}/${name}`);
+  const defaultBranch = repoInfo.default_branch;
+  const branchData = await ghFetch(`https://api.github.com/repos/${owner}/${name}/branches/${defaultBranch}`);
+  return branchData.commit.commit.committer.date;
 }
 
 async function fetchRepoData(repo) {
   try {
     await checkRateLimit();
 
-    const repoResponse = await axios.get(`https://api.github.com/repos/${repo}`, {
-      headers: {
-        Authorization: `Bearer ${GITHUB_TOKEN}`,
-      },
-    });
+    const repoData = await ghFetch(`https://api.github.com/repos/${repo}`);
+    const topicsData = await ghFetch(`https://api.github.com/repos/${repo}/topics`);
 
-    const topicsResponse = await axios.get(`https://api.github.com/repos/${repo}/topics`, {
-      headers: {
-        Accept: 'application/vnd.github.mercy-preview+json',
-        Authorization: `Bearer ${GITHUB_TOKEN}`,
-      },
-    });
-
-    const fullRepoName = `${repoResponse.data.owner.login}/${repoResponse.data.name}`;
-    const description = repoResponse.data.description || "";
-    const tags = topicsResponse.data.names || [];
-    const language = repoResponse.data.language || "";
+    const fullRepoName = `${repoData.owner.login}/${repoData.name}`;
+    const description = repoData.description || "";
+    const tags = topicsData.names || [];
+    const language = repoData.language || "";
     const lastAcceptedCommit = await fetchLastAcceptedCommit(repo);
     const assignedCategories = assignCategory(description, tags, language);
 
     return {
       name: fullRepoName,
-      repo: repoResponse.data.html_url,
-      stars: repoResponse.data.stargazers_count,
+      repo: repoData.html_url,
+      stars: repoData.stargazers_count,
       last_commit: lastAcceptedCommit,
       language,
       description,
