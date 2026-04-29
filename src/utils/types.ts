@@ -6,6 +6,7 @@ export interface Tool {
   language: string;
   description: string;
   tags: string[];
+  archived: boolean;
 }
 
 export interface ToolWithBadge extends Tool {

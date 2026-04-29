@@ -64,6 +64,7 @@ async function fetchRepoData(repo) {
     language: repoData.language || "",
     description: repoData.description || "",
     tags: topicsData.names || [],
+    archived: repoData.archived === true,
   };
 }
 

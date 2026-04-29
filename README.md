@@ -1,6 +1,6 @@
 # CloudSec Tools
 
-A directory of open-source cloud security tools at [cloudsectools.com](https://cloudsectools.com).
+A directory of open-source cloud security tools at [cloudsectools.dev](https://cloudsectools.dev).
 
 Search, filter, and sort tools across AWS, Azure, GCP, and Kubernetes. Data is pulled fresh from GitHub daily.
 
