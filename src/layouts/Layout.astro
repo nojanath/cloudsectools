@@ -36,9 +36,15 @@ const jsonLd = {
     <meta property="og:url" content={canonical} />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={siteName} />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content="https://cloudsectools.dev/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="685" />
+    <meta property="og:image:alt" content="CloudSecTools — directory of open-source cloud security tools" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://cloudsectools.dev/og.png" />
+    <meta name="twitter:image:alt" content="CloudSecTools — directory of open-source cloud security tools" />
     <title>{title}</title>
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
