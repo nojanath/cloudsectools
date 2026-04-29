@@ -78,7 +78,7 @@ const { slices: pieSlices, data: pieData } = buildPieChart(toolsData as Tool[]);
         Stats
       </button>
 
-      <button id="inactive-toggle" class="block py-2.5 px-0 w-auto text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-gray-400 rounded-none cursor-pointer" title="Show projects older than 3 years old.">
+      <button id="inactive-toggle" class="block py-2.5 px-0 w-auto text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-gray-400 rounded-none cursor-pointer" title="Show projects that are archived or older than 3 years.">
         Show Inactive
       </button>
     </div>
@@ -98,6 +98,7 @@ const { slices: pieSlices, data: pieData } = buildPieChart(toolsData as Tool[]);
           data-description={tool.description.toLowerCase()}
           data-tags={tool.tags.join(',').toLowerCase()}
           data-language={tool.language}
+          data-archived={tool.archived ? '1' : '0'}
           data-stars={tool.stars}
           data-last-commit={tool.last_commit}
         >
@@ -204,7 +205,7 @@ const { slices: pieSlices, data: pieData } = buildPieChart(toolsData as Tool[]);
     if (params.get('inactive') === '1') {
       showInactive = true;
       inactiveToggle.textContent = 'Hide Inactive';
-      inactiveToggle.title = 'Hide projects older than 3 years old.';
+      inactiveToggle.title = 'Hide projects that are archived or older than 3 years.';
     }
 
     function updateURL() {
@@ -227,6 +228,7 @@ const { slices: pieSlices, data: pieData } = buildPieChart(toolsData as Tool[]);
         const desc = card.dataset.description;
         const tags = card.dataset.tags;
         const lang = card.dataset.language;
+        const cardArchived = card.dataset.archived === '1';
         const lastCommit = card.dataset.lastCommit;
 
         let show = true;
@@ -239,7 +241,7 @@ const { slices: pieSlices, data: pieData } = buildPieChart(toolsData as Tool[]);
           show = false;
         }
 
-        if (!showInactive && new Date(lastCommit) < new Date(threeYearsAgoISO)) {
+        if (!showInactive && (cardArchived || new Date(lastCommit) < new Date(threeYearsAgoISO))) {
           show = false;
         }
 
@@ -286,8 +288,8 @@ const { slices: pieSlices, data: pieData } = buildPieChart(toolsData as Tool[]);
       showInactive = !showInactive;
       inactiveToggle.textContent = showInactive ? 'Hide Inactive' : 'Show Inactive';
       inactiveToggle.title = showInactive
-        ? 'Hide projects older than 3 years old.'
-        : 'Show projects older than 3 years old.';
+        ? 'Hide projects that are archived or older than 3 years.'
+        : 'Show projects that are archived or older than 3 years.';
       applyFilters();
     });
 
