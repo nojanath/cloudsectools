@@ -1,0 +1,8 @@
+# Canonical host: apex (cloudsectools.dev)
+# www.cloudsectools.dev → cloudsectools.dev
+# Note: fires only if www is also configured as a custom domain on the Pages project.
+# The *.pages.dev preview domain is handled by an account-level Bulk Redirect
+# (Cloudflare Dashboard → Bulk Redirects), since _redirects does not apply to
+# the Pages-managed pages.dev hostname.
+https://www.cloudsectools.dev/* https://cloudsectools.dev/:splat 301
+http://www.cloudsectools.dev/* https://cloudsectools.dev/:splat 301
