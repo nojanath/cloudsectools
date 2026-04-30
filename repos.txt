@@ -83,6 +83,7 @@ elastic/dorothy
 elitest/Redboto
 endgameinc/aws-logsearch
 endgameinc/varna
+engseclabs/trailtool
 ermetic/access-undenied-aws
 eth0izzle/bucket-stream
 evild3ad/Microsoft-Analyzer-Suite
