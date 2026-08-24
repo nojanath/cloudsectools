@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@fontsource/montserrat": "^5.1.0",
-    "astro": "^6.1.6"
+    "astro": "^6.1.10"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.1.3",
