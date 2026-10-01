@@ -15,6 +15,7 @@ Aqua-Nautilus/TrailShark
 aquasecurity/trivy
 aquia-inc/scpkit
 arkadiyt/aws_public_ips
+ASCIT31/Dark-Moon
 Atticuss/bucketcat
 aws-cloudformation/cloudformation-guard
 aws-samples/automated-security-helper
